@@ -5,7 +5,7 @@
 <mapper namespace="org.example.o_mysql.mapper.OGoodsTypeMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OGoodsType">
-            <id property="spuno" column="spuno" jdbcType="VARCHAR"/>
+            <id property="spuno" column="spuno" jdbcType="BIGINT"/>
             <result property="defaultShelfLife" column="default_shelf_life" jdbcType="VARCHAR"/>
             <result property="specificationTypeList" column="specification_type_list" jdbcType="OTHER"/>
             <result property="totalQuantity" column="total_quantity" jdbcType="DOUBLE"/>

@@ -5,17 +5,17 @@
 <mapper namespace="org.example.o_mysql.mapper.OFreightMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OFreight">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="x" column="x" jdbcType="BIGINT"/>
             <result property="y" column="y" jdbcType="BIGINT"/>
             <result property="z" column="z" jdbcType="BIGINT"/>
-            <result property="spuno" column="spuno" jdbcType="VARCHAR"/>
+            <result property="spuno" column="spuno" jdbcType="BIGINT"/>
             <result property="stocksNum" column="stocks_num" jdbcType="BIGINT"/>
             <result property="stocksMaxNum" column="stocks_max_num" jdbcType="BIGINT"/>
-            <result property="wareId" column="ware_id" jdbcType="VARCHAR"/>
-            <result property="resId" column="res_id" jdbcType="VARCHAR"/>
-            <result property="sheId" column="she_id" jdbcType="VARCHAR"/>
+            <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
+            <result property="resId" column="res_id" jdbcType="BIGINT"/>
+            <result property="sheId" column="she_id" jdbcType="BIGINT"/>
             <result property="dec" column="dec" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>

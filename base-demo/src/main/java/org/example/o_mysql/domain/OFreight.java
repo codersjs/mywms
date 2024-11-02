@@ -19,7 +19,7 @@ public class OFreight implements Serializable {
      * 货架编号
      */
     @TableId(value = "id")
-    private String id;
+    private Long id;
 
     /**
      * 货架名称
@@ -49,7 +49,7 @@ public class OFreight implements Serializable {
      * 货位存放的物品的类型
      */
     @TableField(value = "spuno")
-    private String spuno;
+    private Long spuno;
 
     /**
      * 货位的存货数量
@@ -67,19 +67,19 @@ public class OFreight implements Serializable {
      * 仓库编号
      */
     @TableField(value = "ware_id")
-    private String wareId;
+    private Long wareId;
 
     /**
      * 库区编号
      */
     @TableField(value = "res_id")
-    private String resId;
+    private Long resId;
 
     /**
      * 货架编号
      */
     @TableField(value = "she_id")
-    private String sheId;
+    private Long sheId;
 
     /**
      * 货位的描述

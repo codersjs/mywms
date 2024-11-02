@@ -5,7 +5,7 @@
 <mapper namespace="org.example.o_mysql.mapper.OHeapTypeMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OHeapType">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="length" column="length" jdbcType="BIGINT"/>
             <result property="width" column="width" jdbcType="BIGINT"/>

@@ -19,7 +19,7 @@ public class OHeap implements Serializable {
      * 堆货区编号
      */
     @TableId(value = "id")
-    private String id;
+    private Long id;
 
     /**
      * 堆货区名称
@@ -43,13 +43,13 @@ public class OHeap implements Serializable {
      * 仓库编号
      */
     @TableField(value = "ware_id")
-    private String wareId;
+    private Long wareId;
 
     /**
      * 库区编号
      */
     @TableField(value = "res_id")
-    private String resId;
+    private Long resId;
 
     /**
      * 堆货区的描述

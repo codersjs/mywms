@@ -5,9 +5,9 @@
 <mapper namespace="org.example.o_mysql.mapper.OGoodsUnitMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OGoodsUnit">
-            <id property="skuno" column="skuno" jdbcType="VARCHAR"/>
-            <result property="spuno" column="spuno" jdbcType="VARCHAR"/>
-            <result property="specification" column="specification" jdbcType="VARCHAR"/>
+            <id property="skuno" column="skuno" jdbcType="BIGINT"/>
+            <result property="spuno" column="spuno" jdbcType="BIGINT"/>
+            <result property="specId" column="spec_id" jdbcType="BIGINT"/>
             <result property="dateManufacture" column="date_manufacture" jdbcType="TIMESTAMP"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
@@ -15,7 +15,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        skuno,spuno,specification,
+        skuno,spuno,spec_id,
         date_manufacture,createTime,updateTime,
         is_delete
     </sql>

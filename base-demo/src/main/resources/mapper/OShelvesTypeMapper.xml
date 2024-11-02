@@ -5,7 +5,7 @@
 <mapper namespace="org.example.o_mysql.mapper.OShelvesTypeMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OShelvesType">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="layer" column="layer" jdbcType="BIGINT"/>
             <result property="layerNum" column="layer_num" jdbcType="BIGINT"/>

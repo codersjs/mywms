@@ -19,7 +19,7 @@ public class OWarehouse implements Serializable {
      * 仓库编号
      */
     @TableId(value = "id")
-    private String id;
+    private Long id;
 
     /**
      * 仓库名称

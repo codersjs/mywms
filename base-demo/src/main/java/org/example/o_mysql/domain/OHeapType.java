@@ -19,10 +19,10 @@ public class OHeapType implements Serializable {
      * 堆区id
      */
     @TableId(value = "id")
-    private String id;
+    private Long id;
 
     /**
-     * 货区名称
+     * 堆区名称
      */
     @TableField(value = "name")
     private String name;

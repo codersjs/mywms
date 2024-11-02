@@ -19,7 +19,7 @@ public class OGoodsType implements Serializable {
      * 物品的种类
      */
     @TableId(value = "spuno")
-    private String spuno;
+    private Long spuno;
 
     /**
      * 默认保质期

@@ -19,7 +19,7 @@ public class OReservoirArea implements Serializable {
      * 库区编号
      */
     @TableId(value = "id")
-    private String id;
+    private Long id;
 
     /**
      * 库区名称
@@ -67,7 +67,7 @@ public class OReservoirArea implements Serializable {
      * 仓库编号
      */
     @TableField(value = "ware_id")
-    private String wareId;
+    private Long wareId;
 
     /**
      * 库区的描述

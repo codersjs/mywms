@@ -19,7 +19,7 @@ public class OShelves implements Serializable {
      * 货架编号
      */
     @TableId(value = "id")
-    private String id;
+    private Long id;
 
     /**
      * 货架名称
@@ -43,19 +43,13 @@ public class OShelves implements Serializable {
      * 仓库编号
      */
     @TableField(value = "ware_id")
-    private String wareId;
+    private Long wareId;
 
     /**
      * 库区编号
      */
     @TableField(value = "res_id")
-    private String resId;
-
-    /**
-     * 库位编号
-     */
-    @TableField(value = "bin_id")
-    private String binId;
+    private Long resId;
 
     /**
      * 创建时间

@@ -19,7 +19,7 @@ public class OShelvesType implements Serializable {
      * 货架编号
      */
     @TableId(value = "id")
-    private String id;
+    private Long id;
 
     /**
      * 货架名称

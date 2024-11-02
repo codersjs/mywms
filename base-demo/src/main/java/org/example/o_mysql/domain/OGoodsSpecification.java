@@ -18,20 +18,20 @@ public class OGoodsSpecification implements Serializable {
     /**
      * 规格id
      */
-    @TableId(value = "spcid")
-    private String spcid;
+    @TableId(value = "specid")
+    private Long specid;
 
     /**
      * 物品的种类
      */
     @TableField(value = "spuno")
-    private String spuno;
+    private Long spuno;
 
     /**
      * 规格名称
      */
-    @TableField(value = "spc_name")
-    private String spcName;
+    @TableField(value = "spec_name")
+    private String specName;
 
     /**
      * 存储容量

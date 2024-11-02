@@ -19,19 +19,19 @@ public class OGoodsUnit implements Serializable {
      * 物品最小存储单元
      */
     @TableId(value = "skuno")
-    private String skuno;
+    private Long skuno;
 
     /**
      * 物品的种类
      */
     @TableField(value = "spuno")
-    private String spuno;
+    private Long spuno;
 
     /**
      * 物品的规格
      */
-    @TableField(value = "specification")
-    private String specification;
+    @TableField(value = "spec_id")
+    private Long specId;
 
     /**
      * 生产日期

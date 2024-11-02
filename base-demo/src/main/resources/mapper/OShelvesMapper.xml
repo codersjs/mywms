@@ -5,13 +5,12 @@
 <mapper namespace="org.example.o_mysql.mapper.OShelvesMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OShelves">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="type" column="type" jdbcType="VARCHAR"/>
             <result property="postion" column="postion" jdbcType="VARCHAR"/>
-            <result property="wareId" column="ware_id" jdbcType="VARCHAR"/>
-            <result property="resId" column="res_id" jdbcType="VARCHAR"/>
-            <result property="binId" column="bin_id" jdbcType="VARCHAR"/>
+            <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
+            <result property="resId" column="res_id" jdbcType="BIGINT"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
@@ -20,7 +19,6 @@
     <sql id="Base_Column_List">
         id,name,type,
         postion,ware_id,res_id,
-        bin_id,createTime,updateTime,
-        is_delete
+        createTime,updateTime,is_delete
     </sql>
 </mapper>

@@ -5,9 +5,9 @@
 <mapper namespace="org.example.o_mysql.mapper.OGoodsSpecificationMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OGoodsSpecification">
-            <id property="spcid" column="spcid" jdbcType="VARCHAR"/>
-            <result property="spuno" column="spuno" jdbcType="VARCHAR"/>
-            <result property="spcName" column="spc_name" jdbcType="VARCHAR"/>
+            <id property="specid" column="specid" jdbcType="BIGINT"/>
+            <result property="spuno" column="spuno" jdbcType="BIGINT"/>
+            <result property="specName" column="spec_name" jdbcType="VARCHAR"/>
             <result property="stockMaxNum" column="stock_max_num" jdbcType="BIGINT"/>
             <result property="stockType" column="stock_type" jdbcType="BIGINT"/>
             <result property="stockMessage" column="stock_message" jdbcType="BIGINT"/>
@@ -20,7 +20,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        spcid,spuno,spc_name,
+        specid,spuno,spec_name,
         stock_max_num,stock_type,stock_message,
         total_quantity,available_quantity,warn_total_num,
         createTime,updateTime,is_delete
