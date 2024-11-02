@@ -85,6 +85,7 @@ public class autoCreateWareServiceImpl implements autoCreateWareService {
             // 库区位置
             String resPostion = reservoir.getPostionX()+","+reservoir.getPostionY();
             reservoirArea.setPostion(resPostion);
+            reservoirArea.setLayout(reservoir.getAutoshelvesList());
 
             reservoirAreaService.save(reservoirArea);
 

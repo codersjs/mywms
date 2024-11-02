@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【o_reservoir_area】的数据库操作Service实现
-* @createDate 2024-11-02 18:40:40
+* @createDate 2024-11-02 20:46:19
 */
 @Service
 public class OReservoirAreaServiceImpl extends ServiceImpl<OReservoirAreaMapper, OReservoirArea>

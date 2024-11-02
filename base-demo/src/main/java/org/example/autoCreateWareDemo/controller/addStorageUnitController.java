@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 /**
  * 添加货架类型和堆放区域类型
  */
-@RestController("/add/storage")
+@RestController
 public class addStorageUnitController {
 
     @Resource
@@ -32,7 +32,7 @@ public class addStorageUnitController {
      * @param layerNum
      * @return
      */
-    @PostMapping("/shelves")
+    @PostMapping("/add/storage/shelves")
     public ResultData addShelves(@RequestParam("name") String name,
                                  @RequestParam("layer") Long layer,
                                  @RequestParam("layernum") Long layerNum,
@@ -54,6 +54,7 @@ public class addStorageUnitController {
      * @param dec
      * @return
      */
+    @PostMapping("/add/storage/heap")
     public ResultData addheap(@RequestParam("name") String name,
                               @RequestParam("length") Long length,
                               @RequestParam("width") Long width,

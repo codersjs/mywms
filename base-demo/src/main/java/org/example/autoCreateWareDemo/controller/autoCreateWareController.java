@@ -13,18 +13,20 @@ import javax.annotation.Resource;
 /**
  * 根据传入的仓库信息创建货架
  */
-@RestController("/create/ware")
+@RestController
 public class autoCreateWareController {
 
     @Resource
     private autoCreateWareService createWareService;
 
-    @PostMapping("/do")
+    @PostMapping("/create/ware/doware")
     public ResultData autoCreateWare(@RequestBody autoCreateWareRequest request) {
 
         createWareService.create(request);
 
         return ResultData.sucess(ReturnCodeEnum.RC200.getCode(), null);
     }
+
+
 
 }
