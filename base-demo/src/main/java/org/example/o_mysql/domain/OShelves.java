@@ -30,8 +30,8 @@ public class OShelves implements Serializable {
     /**
      * 货架的类型
      */
-    @TableField(value = "type")
-    private String type;
+    @TableField(value = "type_id")
+    private Long typeId;
 
     /**
      * 货架的位置

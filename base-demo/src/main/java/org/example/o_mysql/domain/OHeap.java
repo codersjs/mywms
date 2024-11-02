@@ -30,8 +30,8 @@ public class OHeap implements Serializable {
     /**
      * 堆货区的类型
      */
-    @TableField(value = "type")
-    private String type;
+    @TableField(value = "type_id")
+    private Long typeId;
 
     /**
      * 位置

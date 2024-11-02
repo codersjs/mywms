@@ -7,7 +7,7 @@
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OHeap">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="typeId" column="type_id" jdbcType="BIGINT"/>
             <result property="postion" column="postion" jdbcType="VARCHAR"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
             <result property="resId" column="res_id" jdbcType="BIGINT"/>
@@ -19,7 +19,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,type,
+        id,name,type_id,
         postion,ware_id,res_id,
         dec,is_lock,createTime,
         updateTime,is_delete
