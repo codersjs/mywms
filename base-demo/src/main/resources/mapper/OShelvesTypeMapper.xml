@@ -8,11 +8,11 @@
             <id property="id" column="id" jdbcType="VARCHAR"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="layer" column="layer" jdbcType="BIGINT"/>
-            <result property="layer_num" column="layer_num" jdbcType="BIGINT"/>
+            <result property="layerNum" column="layer_num" jdbcType="BIGINT"/>
             <result property="dec" column="dec" jdbcType="VARCHAR"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="is_delete" column="is_delete" jdbcType="TINYINT"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">

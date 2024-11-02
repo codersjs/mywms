@@ -18,53 +18,62 @@ public class OShelves implements Serializable {
     /**
      * 货架编号
      */
-    @TableId
+    @TableId(value = "id")
     private String id;
 
     /**
      * 货架名称
      */
+    @TableField(value = "name")
     private String name;
 
     /**
      * 货架的类型
      */
+    @TableField(value = "type")
     private String type;
 
     /**
      * 货架的位置
      */
+    @TableField(value = "postion")
     private String postion;
 
     /**
      * 仓库编号
      */
-    private String ware_id;
+    @TableField(value = "ware_id")
+    private String wareId;
 
     /**
      * 库区编号
      */
-    private String res_id;
+    @TableField(value = "res_id")
+    private String resId;
 
     /**
      * 库位编号
      */
-    private String bin_id;
+    @TableField(value = "bin_id")
+    private String binId;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(value = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(value = "updateTime")
+    private Date updatetime;
 
     /**
      * 是否删除
      */
-    private Integer is_delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

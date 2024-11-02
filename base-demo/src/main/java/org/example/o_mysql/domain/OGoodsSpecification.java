@@ -18,63 +18,74 @@ public class OGoodsSpecification implements Serializable {
     /**
      * 规格id
      */
-    @TableId
+    @TableId(value = "spcid")
     private String spcid;
 
     /**
      * 物品的种类
      */
+    @TableField(value = "spuno")
     private String spuno;
 
     /**
      * 规格名称
      */
-    private String spc_name;
+    @TableField(value = "spc_name")
+    private String spcName;
 
     /**
      * 存储容量
      */
-    private Long stock_max_num;
+    @TableField(value = "stock_max_num")
+    private Long stockMaxNum;
 
     /**
      * 存储形式
      */
-    private Long stock_type;
+    @TableField(value = "stock_type")
+    private Long stockType;
 
     /**
      * 存储描述
      */
-    private Long stock_message;
+    @TableField(value = "stock_message")
+    private Long stockMessage;
 
     /**
      * 总的数量
      */
-    private Double total_quantity;
+    @TableField(value = "total_quantity")
+    private Double totalQuantity;
 
     /**
      * 可用数量
      */
-    private Double available_quantity;
+    @TableField(value = "available_quantity")
+    private Double availableQuantity;
 
     /**
      * 预警总数量
      */
-    private Double warn_total_num;
+    @TableField(value = "warn_total_num")
+    private Double warnTotalNum;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(value = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(value = "updateTime")
+    private Date updatetime;
 
     /**
      * 是否删除
      */
-    private Integer is_delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

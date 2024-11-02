@@ -8,10 +8,10 @@
             <id property="skuno" column="skuno" jdbcType="VARCHAR"/>
             <result property="spuno" column="spuno" jdbcType="VARCHAR"/>
             <result property="specification" column="specification" jdbcType="VARCHAR"/>
-            <result property="date_manufacture" column="date_manufacture" jdbcType="TIMESTAMP"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="is_delete" column="is_delete" jdbcType="TINYINT"/>
+            <result property="dateManufacture" column="date_manufacture" jdbcType="TIMESTAMP"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">

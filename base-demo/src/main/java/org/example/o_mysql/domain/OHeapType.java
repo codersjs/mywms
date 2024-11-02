@@ -18,43 +18,50 @@ public class OHeapType implements Serializable {
     /**
      * 堆区id
      */
-    @TableId
+    @TableId(value = "id")
     private String id;
 
     /**
      * 货区名称
      */
+    @TableField(value = "name")
     private String name;
 
     /**
      * 堆货区的长度
      */
+    @TableField(value = "length")
     private Long length;
 
     /**
      * 堆货区的宽度
      */
+    @TableField(value = "width")
     private Long width;
 
     /**
      * 堆货区的描述
      */
+    @TableField(value = "dec")
     private String dec;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(value = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(value = "updateTime")
+    private Date updatetime;
 
     /**
      * 是否删除
      */
-    private Integer is_delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

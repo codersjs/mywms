@@ -18,63 +18,74 @@ public class OReservoirArea implements Serializable {
     /**
      * 库区编号
      */
-    @TableId
+    @TableId(value = "id")
     private String id;
 
     /**
      * 库区名称
      */
+    @TableField(value = "name")
     private String name;
 
     /**
      * 库区的类型
      */
+    @TableField(value = "type")
     private String type;
 
     /**
      * 位置
      */
+    @TableField(value = "postion")
     private String postion;
 
     /**
      * 库区的布局
      */
+    @TableField(value = "layout")
     private Object layout;
 
     /**
      * 仓库的长度
      */
+    @TableField(value = "length")
     private Long length;
 
     /**
      * 仓库的宽度
      */
+    @TableField(value = "width")
     private Long width;
 
     /**
      * 仓库编号
      */
-    private String ware_id;
+    @TableField(value = "ware_id")
+    private String wareId;
 
     /**
      * 库区的描述
      */
+    @TableField(value = "dec")
     private String dec;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(value = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(value = "updateTime")
+    private Date updatetime;
 
     /**
      * 是否删除
      */
-    private Integer is_delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

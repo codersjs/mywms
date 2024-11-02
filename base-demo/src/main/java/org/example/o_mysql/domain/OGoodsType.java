@@ -18,53 +18,62 @@ public class OGoodsType implements Serializable {
     /**
      * 物品的种类
      */
-    @TableId
+    @TableId(value = "spuno")
     private String spuno;
 
     /**
      * 默认保质期
      */
-    private String default_shelf_life;
+    @TableField(value = "default_shelf_life")
+    private String defaultShelfLife;
 
     /**
      * 规格的种类
      */
-    private Object specification_type_list;
+    @TableField(value = "specification_type_list")
+    private Object specificationTypeList;
 
     /**
      * 总的数量
      */
-    private Double total_quantity;
+    @TableField(value = "total_quantity")
+    private Double totalQuantity;
 
     /**
      * 可用数量
      */
-    private Double available_quantity;
+    @TableField(value = "available_quantity")
+    private Double availableQuantity;
 
     /**
      * 预警总数量
      */
-    private Double warn_total_num;
+    @TableField(value = "warn_total_num")
+    private Double warnTotalNum;
 
     /**
      * 预警保质期
      */
-    private String warn_shelf_life;
+    @TableField(value = "warn_shelf_life")
+    private String warnShelfLife;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(value = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(value = "updateTime")
+    private Date updatetime;
 
     /**
      * 是否删除
      */
-    private Integer is_delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

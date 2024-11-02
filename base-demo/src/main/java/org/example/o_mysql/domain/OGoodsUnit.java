@@ -18,38 +18,44 @@ public class OGoodsUnit implements Serializable {
     /**
      * 物品最小存储单元
      */
-    @TableId
+    @TableId(value = "skuno")
     private String skuno;
 
     /**
      * 物品的种类
      */
+    @TableField(value = "spuno")
     private String spuno;
 
     /**
      * 物品的规格
      */
+    @TableField(value = "specification")
     private String specification;
 
     /**
      * 生产日期
      */
-    private Date date_manufacture;
+    @TableField(value = "date_manufacture")
+    private Date dateManufacture;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(value = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(value = "updateTime")
+    private Date updatetime;
 
     /**
      * 是否删除
      */
-    private Integer is_delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

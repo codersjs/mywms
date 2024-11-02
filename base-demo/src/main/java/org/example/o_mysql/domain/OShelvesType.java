@@ -18,43 +18,50 @@ public class OShelvesType implements Serializable {
     /**
      * 货架编号
      */
-    @TableId
+    @TableId(value = "id")
     private String id;
 
     /**
      * 货架名称
      */
+    @TableField(value = "name")
     private String name;
 
     /**
      * 货架的层数
      */
+    @TableField(value = "layer")
     private Long layer;
 
     /**
      * 货架每行的货位容量
      */
-    private Long layer_num;
+    @TableField(value = "layer_num")
+    private Long layerNum;
 
     /**
      * 货架的描述
      */
+    @TableField(value = "dec")
     private String dec;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(value = "createTime")
+    private Date createtime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(value = "updateTime")
+    private Date updatetime;
 
     /**
      * 是否删除
      */
-    private Integer is_delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

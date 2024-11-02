@@ -7,16 +7,16 @@
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OGoodsSpecification">
             <id property="spcid" column="spcid" jdbcType="VARCHAR"/>
             <result property="spuno" column="spuno" jdbcType="VARCHAR"/>
-            <result property="spc_name" column="spc_name" jdbcType="VARCHAR"/>
-            <result property="stock_max_num" column="stock_max_num" jdbcType="BIGINT"/>
-            <result property="stock_type" column="stock_type" jdbcType="BIGINT"/>
-            <result property="stock_message" column="stock_message" jdbcType="BIGINT"/>
-            <result property="total_quantity" column="total_quantity" jdbcType="DOUBLE"/>
-            <result property="available_quantity" column="available_quantity" jdbcType="DOUBLE"/>
-            <result property="warn_total_num" column="warn_total_num" jdbcType="DOUBLE"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="is_delete" column="is_delete" jdbcType="TINYINT"/>
+            <result property="spcName" column="spc_name" jdbcType="VARCHAR"/>
+            <result property="stockMaxNum" column="stock_max_num" jdbcType="BIGINT"/>
+            <result property="stockType" column="stock_type" jdbcType="BIGINT"/>
+            <result property="stockMessage" column="stock_message" jdbcType="BIGINT"/>
+            <result property="totalQuantity" column="total_quantity" jdbcType="DOUBLE"/>
+            <result property="availableQuantity" column="available_quantity" jdbcType="DOUBLE"/>
+            <result property="warnTotalNum" column="warn_total_num" jdbcType="DOUBLE"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
