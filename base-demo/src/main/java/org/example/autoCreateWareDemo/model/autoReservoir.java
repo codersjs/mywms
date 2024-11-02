@@ -9,8 +9,7 @@ import java.util.List;
  */
 @Data
 public class autoReservoir {
-    // 库区的名称
-    private String name;
+
     // 库区的宽度
     private Long width;
     // 库区的长度

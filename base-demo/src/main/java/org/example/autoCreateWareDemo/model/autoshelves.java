@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class autoshelves {
     // 是否是货架
-    private Long istypenum;
+    private String istypenum;
     // 存储单元的编号
     private Long typeId;
     // 上到下，左到右，左上的坐标
