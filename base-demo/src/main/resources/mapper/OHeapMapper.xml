@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".mapper.OHeapMapper">
+
+    <resultMap id="BaseResultMap" type=".domain.OHeap">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="postion" column="postion" jdbcType="VARCHAR"/>
+            <result property="wareId" column="ware_id" jdbcType="VARCHAR"/>
+            <result property="resId" column="res_id" jdbcType="VARCHAR"/>
+            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="isLock" column="is_lock" jdbcType="TINYINT"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,type,
+        postion,ware_id,res_id,
+        dec,is_lock,createTime,
+        updateTime,is_delete
+    </sql>
+</mapper>

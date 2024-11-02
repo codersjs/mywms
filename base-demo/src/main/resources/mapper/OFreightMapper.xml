@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".mapper.OFreightMapper">
+
+    <resultMap id="BaseResultMap" type=".domain.OFreight">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="x" column="x" jdbcType="BIGINT"/>
+            <result property="y" column="y" jdbcType="BIGINT"/>
+            <result property="z" column="z" jdbcType="BIGINT"/>
+            <result property="spuno" column="spuno" jdbcType="VARCHAR"/>
+            <result property="stocksNum" column="stocks_num" jdbcType="BIGINT"/>
+            <result property="stocksMaxNum" column="stocks_max_num" jdbcType="BIGINT"/>
+            <result property="wareId" column="ware_id" jdbcType="VARCHAR"/>
+            <result property="resId" column="res_id" jdbcType="VARCHAR"/>
+            <result property="sheId" column="she_id" jdbcType="VARCHAR"/>
+            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,x,
+        y,z,spuno,
+        stocks_num,stocks_max_num,ware_id,
+        res_id,she_id,dec,
+        createTime,updateTime,is_delete
+    </sql>
+</mapper>
