@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.o_mysql.mapper.OGoodsTypeMapper">
+
+    <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OGoodsType">
+            <id property="spuno" column="spuno" jdbcType="VARCHAR"/>
+            <result property="default_shelf_life" column="default_shelf_life" jdbcType="VARCHAR"/>
+            <result property="specification_type_list" column="specification_type_list" jdbcType="OTHER"/>
+            <result property="total_quantity" column="total_quantity" jdbcType="DOUBLE"/>
+            <result property="available_quantity" column="available_quantity" jdbcType="DOUBLE"/>
+            <result property="warn_total_num" column="warn_total_num" jdbcType="DOUBLE"/>
+            <result property="warn_shelf_life" column="warn_shelf_life" jdbcType="VARCHAR"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="is_delete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        spuno,default_shelf_life,specification_type_list,
+        total_quantity,available_quantity,warn_total_num,
+        warn_shelf_life,createTime,updateTime,
+        is_delete
+    </sql>
+</mapper>

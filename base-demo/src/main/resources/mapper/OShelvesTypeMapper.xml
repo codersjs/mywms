@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.o_mysql.mapper.OShelvesTypeMapper">
+
+    <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OShelvesType">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="layer" column="layer" jdbcType="BIGINT"/>
+            <result property="layer_num" column="layer_num" jdbcType="BIGINT"/>
+            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="is_delete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,layer,
+        layer_num,dec,createTime,
+        updateTime,is_delete
+    </sql>
+</mapper>
