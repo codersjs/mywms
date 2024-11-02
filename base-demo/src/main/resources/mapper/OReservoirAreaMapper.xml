@@ -11,6 +11,7 @@
             <result property="postion" column="postion" jdbcType="VARCHAR"/>
             <result property="layout" column="layout" jdbcType="OTHER"/>
             <result property="length" column="length" jdbcType="BIGINT"/>
+            <result property="shedir" column="shedir" jdbcType="VARCHAR"/>
             <result property="width" column="width" jdbcType="BIGINT"/>
             <result property="wareId" column="ware_id" jdbcType="VARCHAR"/>
             <result property="dec" column="dec" jdbcType="VARCHAR"/>
@@ -22,7 +23,8 @@
     <sql id="Base_Column_List">
         id,name,type,
         postion,layout,length,
-        width,ware_id,dec,
-        createTime,updateTime,is_delete
+        shedir,width,ware_id,
+        dec,createTime,updateTime,
+        is_delete
     </sql>
 </mapper>

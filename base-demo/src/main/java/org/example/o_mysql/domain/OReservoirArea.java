@@ -52,6 +52,12 @@ public class OReservoirArea implements Serializable {
     private Long length;
 
     /**
+     * 库区的朝向
+     */
+    @TableField(value = "shedir")
+    private String shedir;
+
+    /**
      * 仓库的宽度
      */
     @TableField(value = "width")
