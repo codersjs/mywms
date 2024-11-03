@@ -12,8 +12,8 @@
             <result property="z" column="z" jdbcType="BIGINT"/>
             <result property="spuno" column="spuno" jdbcType="BIGINT"/>
             <result property="specid" column="specid" jdbcType="BIGINT"/>
-            <result property="stocksNum" column="stocks_num" jdbcType="BIGINT"/>
-            <result property="stocksMaxNum" column="stocks_max_num" jdbcType="BIGINT"/>
+            <result property="stocksNum" column="stocks_num" jdbcType="DOUBLE"/>
+            <result property="stocksMaxNum" column="stocks_max_num" jdbcType="DOUBLE"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
             <result property="resId" column="res_id" jdbcType="BIGINT"/>
             <result property="sheId" column="she_id" jdbcType="BIGINT"/>

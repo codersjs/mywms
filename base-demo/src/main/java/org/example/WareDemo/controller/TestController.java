@@ -11,6 +11,6 @@ public class TestController {
 
     @GetMapping("/hello")
     public ResultData hello() {
-        return ResultData.sucess("200", "Hello World");
+        return new ResultData("222",null ,"Hello World");
     }
 }

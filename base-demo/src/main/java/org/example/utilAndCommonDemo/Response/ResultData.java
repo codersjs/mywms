@@ -1,6 +1,7 @@
 package org.example.utilAndCommonDemo.Response;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * 通用返回体
