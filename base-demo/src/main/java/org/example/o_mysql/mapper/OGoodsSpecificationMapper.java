@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 /**
 * @author 施
 * @description 针对表【o_goods_specification】的数据库操作Mapper
-* @createDate 2024-11-03 13:53:32
+* @createDate 2024-11-03 15:03:55
 * @Entity org.example.o_mysql.domain.OGoodsSpecification
 */
 public interface OGoodsSpecificationMapper extends BaseMapper<OGoodsSpecification> {

@@ -106,8 +106,8 @@ public class OFreight implements Serializable {
     /**
      * 是否删除
      */
-    @TableField(value = "is_delete")
     @TableLogic
+    @TableField(value = "is_delete")
     private Integer isDelete;
 
     @TableField(exist = false)

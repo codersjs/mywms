@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 /**
 * @author 施
 * @description 针对表【o_freight】的数据库操作Mapper
-* @createDate 2024-11-03 13:53:32
+* @createDate 2024-11-03 14:52:10
 * @Entity org.example.o_mysql.domain.OFreight
 */
 public interface OFreightMapper extends BaseMapper<OFreight> {

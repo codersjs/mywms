@@ -26,6 +26,12 @@ public class OGoodsSpecification implements Serializable {
     private Long spuno;
 
     /**
+     * 物品名称
+     */
+    @TableField(value = "spu_name")
+    private String spuName;
+
+    /**
      * 规格名称
      */
     @TableField(value = "spec_name")
@@ -35,13 +41,13 @@ public class OGoodsSpecification implements Serializable {
      * 存储容量
      */
     @TableField(value = "stock_max_num")
-    private Long stockMaxNum;
+    private Double stockMaxNum;
 
     /**
      * 存储形式
      */
     @TableField(value = "stock_type")
-    private Long stockType;
+    private String stockType;
 
     /**
      * 存储描述
