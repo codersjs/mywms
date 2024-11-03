@@ -11,12 +11,13 @@
             <result property="y" column="y" jdbcType="BIGINT"/>
             <result property="z" column="z" jdbcType="BIGINT"/>
             <result property="spuno" column="spuno" jdbcType="BIGINT"/>
+            <result property="specid" column="specid" jdbcType="BIGINT"/>
             <result property="stocksNum" column="stocks_num" jdbcType="BIGINT"/>
             <result property="stocksMaxNum" column="stocks_max_num" jdbcType="BIGINT"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
             <result property="resId" column="res_id" jdbcType="BIGINT"/>
             <result property="sheId" column="she_id" jdbcType="BIGINT"/>
-            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
@@ -25,8 +26,9 @@
     <sql id="Base_Column_List">
         id,name,x,
         y,z,spuno,
-        stocks_num,stocks_max_num,ware_id,
-        res_id,she_id,dec,
-        createTime,updateTime,is_delete
+        specid,stocks_num,stocks_max_num,
+        ware_id,res_id,she_id,
+        description,createTime,updateTime,
+        is_delete
     </sql>
 </mapper>

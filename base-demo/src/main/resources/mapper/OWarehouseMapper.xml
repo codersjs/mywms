@@ -12,7 +12,7 @@
             <result property="length" column="length" jdbcType="BIGINT"/>
             <result property="width" column="width" jdbcType="BIGINT"/>
             <result property="address" column="address" jdbcType="VARCHAR"/>
-            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
@@ -21,7 +21,7 @@
     <sql id="Base_Column_List">
         id,name,type,
         layout,length,width,
-        address,dec,createTime,
+        address,description,createTime,
         updateTime,is_delete
     </sql>
 </mapper>

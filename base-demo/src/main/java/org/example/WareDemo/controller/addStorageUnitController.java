@@ -1,10 +1,9 @@
-package org.example.autoCreateWareDemo.controller;
+package org.example.WareDemo.controller;
 
 
 import org.example.o_mysql.domain.OHeapType;
 import org.example.o_mysql.domain.OShelvesType;
 import org.example.o_mysql.service.OHeapTypeService;
-import org.example.o_mysql.service.OShelvesService;
 import org.example.o_mysql.service.OShelvesTypeService;
 import org.example.utilAndCommonDemo.Response.ResultData;
 import org.example.utilAndCommonDemo.Response.ReturnCodeEnum;
@@ -38,7 +37,7 @@ public class addStorageUnitController {
                                  @RequestParam("layernum") Long layerNum,
                                  @RequestParam(value = "dec",required = false) String dec) {
         OShelvesType shelvesType = new OShelvesType();
-        shelvesType.setDec(dec);
+        shelvesType.setDescription(dec);
         shelvesType.setLayer(layer);
         shelvesType.setLayerNum(layerNum);
         shelvesType.setName(name);
@@ -60,7 +59,7 @@ public class addStorageUnitController {
                               @RequestParam("width") Long width,
                               @RequestParam(value = "dec",required = false) String dec){
         OHeapType heapType = new OHeapType();
-        heapType.setDec(dec);
+        heapType.setDescription(dec);
         heapType.setLength(length);
         heapType.setWidth(width);
         heapTypeService.save(heapType);

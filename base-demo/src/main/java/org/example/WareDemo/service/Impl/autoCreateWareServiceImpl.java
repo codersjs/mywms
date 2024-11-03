@@ -1,9 +1,10 @@
-package org.example.autoCreateWareDemo.service.Impl;
+package org.example.WareDemo.service.Impl;
 
-import org.example.autoCreateWareDemo.model.autoCreateWareRequest;
-import org.example.autoCreateWareDemo.model.autoReservoir;
-import org.example.autoCreateWareDemo.model.autoshelves;
-import org.example.autoCreateWareDemo.service.autoCreateWareService;
+import com.alibaba.fastjson2.JSONObject;
+import org.example.WareDemo.model.autoCreateWareRequest;
+import org.example.WareDemo.model.autoReservoir;
+import org.example.WareDemo.model.autoshelves;
+import org.example.WareDemo.service.autoCreateWareService;
 import org.example.o_mysql.domain.*;
 import org.example.o_mysql.service.*;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,8 @@ public class autoCreateWareServiceImpl implements autoCreateWareService {
     @Override
     public void create(autoCreateWareRequest request) {
 
+        // json工具
+        JSONObject jsonObject = new JSONObject();
 
         // 获取所有种类的货架编号
         HashMap<Long, OShelvesType> stypehash = new HashMap<>();
@@ -59,7 +62,9 @@ public class autoCreateWareServiceImpl implements autoCreateWareService {
         warehouse.setName(request.getWarename());
         warehouse.setLength(request.getLength());
         warehouse.setWidth(request.getWidth());
-        warehouse.setLayout(request);
+
+
+        warehouse.setLayout(jsonObject.toJSONString(request));
         warehouseService.save(warehouse);
 
         // 货位自动生成编号
@@ -85,7 +90,7 @@ public class autoCreateWareServiceImpl implements autoCreateWareService {
             // 库区位置
             String resPostion = reservoir.getPostionX()+","+reservoir.getPostionY();
             reservoirArea.setPostion(resPostion);
-            reservoirArea.setLayout(reservoir.getAutoshelvesList());
+            reservoirArea.setLayout(jsonObject.toJSONString(reservoir.getAutoshelvesList()));
 
             reservoirAreaService.save(reservoirArea);
 
@@ -94,7 +99,9 @@ public class autoCreateWareServiceImpl implements autoCreateWareService {
 
                 if (shelves.getIstypenum().equals("货架")) {
 
+                    System.out.println(shelves.getTypeId());
                     OShelvesType shelvesType =stypehash.get(shelves.getTypeId());
+
                     if (shelvesType == null) {
                         shelvesType = shelvesTypeService.getById(shelves.getTypeId());
                         stypehash.put(shelves.getTypeId(), shelvesType);
@@ -120,35 +127,31 @@ public class autoCreateWareServiceImpl implements autoCreateWareService {
 
                             if (reservoir.getDirection().equals("横向")) {
                                 Long Xx = x+i; // x坐标
-                                Long Zz = y; // z坐标
+                                Long Zz = 0L+j; // z坐标
                                 OFreight freight = new OFreight();
                                 freight.setName("F00"+n++);
                                 freight.setWareId(warehouse.getId());
                                 freight.setResId(reservoirArea.getId());
                                 freight.setSheId(oShelves.getId());
-                                freight.setSpuno(0L);
-                                freight.setStocksMaxNum(0L);
-                                freight.setDec("初始化");
+                                freight.setDescription("初始化");
                                 freight.setX(Xx);
                                 freight.setY(shelves.getPostionY());
-                                freight.setZ(Zz);
+                                freight.setZ(Zz+1);
                                 freightService.save(freight);
                             }
 
                             if (reservoir.getDirection().equals("纵向")) {
                                 Long Yy = x+i;
-                                Long Zz = y;
+                                Long Zz = 0L+j;
                                 OFreight freight = new OFreight();
                                 freight.setName("F00"+n++);
                                 freight.setWareId(warehouse.getId());
                                 freight.setResId(reservoirArea.getId());
                                 freight.setSheId(oShelves.getId());
-                                freight.setSpuno(0L);
-                                freight.setStocksMaxNum(0L);
-                                freight.setDec("初始化");
+                                freight.setDescription("初始化");
                                 freight.setX(shelves.getPostionX());
                                 freight.setY(Yy);
-                                freight.setZ(Zz);
+                                freight.setZ(Zz+1);
                                 freightService.save(freight);
                             }
 

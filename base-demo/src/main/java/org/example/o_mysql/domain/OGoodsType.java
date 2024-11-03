@@ -1,9 +1,7 @@
 package org.example.o_mysql.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -22,10 +20,16 @@ public class OGoodsType implements Serializable {
     private Long spuno;
 
     /**
+     * 物品的种类的名称
+     */
+    @TableField(value = "spuno_name")
+    private String spunoName;
+
+    /**
      * 默认保质期
      */
     @TableField(value = "default_shelf_life")
-    private String defaultShelfLife;
+    private Integer defaultShelfLife;
 
     /**
      * 规格的种类
@@ -55,7 +59,7 @@ public class OGoodsType implements Serializable {
      * 预警保质期
      */
     @TableField(value = "warn_shelf_life")
-    private String warnShelfLife;
+    private Integer warnShelfLife;
 
     /**
      * 创建时间
@@ -73,6 +77,7 @@ public class OGoodsType implements Serializable {
      * 是否删除
      */
     @TableField(value = "is_delete")
+    @TableLogic
     private Integer isDelete;
 
     @TableField(exist = false)

@@ -6,21 +6,22 @@
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OGoodsType">
             <id property="spuno" column="spuno" jdbcType="BIGINT"/>
-            <result property="defaultShelfLife" column="default_shelf_life" jdbcType="VARCHAR"/>
+            <result property="spunoName" column="spuno_name" jdbcType="VARCHAR"/>
+            <result property="defaultShelfLife" column="default_shelf_life" jdbcType="INTEGER"/>
             <result property="specificationTypeList" column="specification_type_list" jdbcType="OTHER"/>
             <result property="totalQuantity" column="total_quantity" jdbcType="DOUBLE"/>
             <result property="availableQuantity" column="available_quantity" jdbcType="DOUBLE"/>
             <result property="warnTotalNum" column="warn_total_num" jdbcType="DOUBLE"/>
-            <result property="warnShelfLife" column="warn_shelf_life" jdbcType="VARCHAR"/>
+            <result property="warnShelfLife" column="warn_shelf_life" jdbcType="INTEGER"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        spuno,default_shelf_life,specification_type_list,
-        total_quantity,available_quantity,warn_total_num,
-        warn_shelf_life,createTime,updateTime,
-        is_delete
+        spuno,spuno_name,default_shelf_life,
+        specification_type_list,total_quantity,available_quantity,
+        warn_total_num,warn_shelf_life,createTime,
+        updateTime,is_delete
     </sql>
 </mapper>

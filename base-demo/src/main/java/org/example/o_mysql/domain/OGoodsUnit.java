@@ -1,9 +1,7 @@
 package org.example.o_mysql.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -20,6 +18,12 @@ public class OGoodsUnit implements Serializable {
      */
     @TableId(value = "skuno")
     private Long skuno;
+
+    /**
+     * 物品名称
+     */
+    @TableField(value = "skuno_name")
+    private String skunoName;
 
     /**
      * 物品的种类
@@ -55,6 +59,7 @@ public class OGoodsUnit implements Serializable {
      * 是否删除
      */
     @TableField(value = "is_delete")
+    @TableLogic
     private Integer isDelete;
 
     @TableField(exist = false)

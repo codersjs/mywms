@@ -1,4 +1,4 @@
-package org.example.autoCreateWareDemo.controller;
+package org.example.WareDemo.controller;
 
 import org.example.utilAndCommonDemo.Response.ResultData;
 import org.springframework.web.bind.annotation.GetMapping;

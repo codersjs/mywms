@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 /**
 * @author 施
 * @description 针对表【o_heap_type】的数据库操作Mapper
-* @createDate 2024-11-02 20:46:19
+* @createDate 2024-11-03 13:53:32
 * @Entity org.example.o_mysql.domain.OHeapType
 */
 public interface OHeapTypeMapper extends BaseMapper<OHeapType> {

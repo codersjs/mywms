@@ -1,4 +1,4 @@
-package org.example.autoCreateWareDemo.model;
+package org.example.WareDemo.model;
 
 import lombok.Data;
 

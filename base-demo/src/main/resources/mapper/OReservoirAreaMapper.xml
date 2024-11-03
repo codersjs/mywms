@@ -14,7 +14,7 @@
             <result property="shedir" column="shedir" jdbcType="VARCHAR"/>
             <result property="width" column="width" jdbcType="BIGINT"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
-            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
@@ -24,7 +24,7 @@
         id,name,type,
         postion,layout,length,
         shedir,width,ware_id,
-        dec,createTime,updateTime,
+        description,createTime,updateTime,
         is_delete
     </sql>
 </mapper>

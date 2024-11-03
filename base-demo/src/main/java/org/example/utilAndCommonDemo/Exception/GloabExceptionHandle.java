@@ -14,7 +14,7 @@ public class GloabExceptionHandle {
 
     @ExceptionHandler(BusinessException.class)
     public ResultData businessExceptionHandler(BusinessException e) {
-        return ResultData.fail(e.getCode(),null);
+        return ResultData.fail(e.getCode(),e.getMessage());
     }
 
 }

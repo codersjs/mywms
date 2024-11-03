@@ -9,7 +9,7 @@
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="length" column="length" jdbcType="BIGINT"/>
             <result property="width" column="width" jdbcType="BIGINT"/>
-            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
@@ -17,7 +17,7 @@
 
     <sql id="Base_Column_List">
         id,name,length,
-        width,dec,createTime,
+        width,description,createTime,
         updateTime,is_delete
     </sql>
 </mapper>

@@ -11,7 +11,7 @@
             <result property="postion" column="postion" jdbcType="VARCHAR"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
             <result property="resId" column="res_id" jdbcType="BIGINT"/>
-            <result property="dec" column="dec" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
             <result property="isLock" column="is_lock" jdbcType="TINYINT"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
@@ -21,7 +21,7 @@
     <sql id="Base_Column_List">
         id,name,type_id,
         postion,ware_id,res_id,
-        dec,is_lock,createTime,
+        description,is_lock,createTime,
         updateTime,is_delete
     </sql>
 </mapper>

@@ -1,7 +1,7 @@
-package org.example.autoCreateWareDemo.controller;
+package org.example.WareDemo.controller;
 
-import org.example.autoCreateWareDemo.model.autoCreateWareRequest;
-import org.example.autoCreateWareDemo.service.autoCreateWareService;
+import org.example.WareDemo.model.autoCreateWareRequest;
+import org.example.WareDemo.service.autoCreateWareService;
 import org.example.utilAndCommonDemo.Response.ResultData;
 import org.example.utilAndCommonDemo.Response.ReturnCodeEnum;
 import org.springframework.web.bind.annotation.PostMapping;

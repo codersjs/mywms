@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【o_shelves】的数据库操作Service实现
-* @createDate 2024-11-02 20:46:19
+* @createDate 2024-11-03 13:53:32
 */
 @Service
 public class OShelvesServiceImpl extends ServiceImpl<OShelvesMapper, OShelves>

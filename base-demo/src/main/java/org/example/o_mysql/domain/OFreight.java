@@ -1,9 +1,7 @@
 package org.example.o_mysql.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -16,13 +14,13 @@ import lombok.Data;
 @Data
 public class OFreight implements Serializable {
     /**
-     * 货架编号
+     * 货位编号
      */
     @TableId(value = "id")
     private Long id;
 
     /**
-     * 货架名称
+     * 货位名称
      */
     @TableField(value = "name")
     private String name;
@@ -50,6 +48,12 @@ public class OFreight implements Serializable {
      */
     @TableField(value = "spuno")
     private Long spuno;
+
+    /**
+     * 规格id
+     */
+    @TableField(value = "specid")
+    private Long specid;
 
     /**
      * 货位的存货数量
@@ -84,8 +88,8 @@ public class OFreight implements Serializable {
     /**
      * 货位的描述
      */
-    @TableField(value = "dec")
-    private String dec;
+    @TableField(value = "description")
+    private String description;
 
     /**
      * 创建时间
@@ -103,6 +107,7 @@ public class OFreight implements Serializable {
      * 是否删除
      */
     @TableField(value = "is_delete")
+    @TableLogic
     private Integer isDelete;
 
     @TableField(exist = false)

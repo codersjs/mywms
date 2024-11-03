@@ -1,8 +1,6 @@
-package org.example.autoCreateWareDemo.model;
+package org.example.WareDemo.model;
 
 import lombok.Data;
-
-import java.util.List;
 
 /**
  * 自动生成货架
