@@ -10,52 +10,58 @@ import lombok.Data;
 
 /**
  * 
- * @TableName o_goods_unit
+ * @TableName t_receipt_head
  */
-@TableName(value ="o_goods_unit")
+@TableName(value ="t_receipt_head")
 @Data
-public class OGoodsUnit implements Serializable {
+public class TReceiptHead implements Serializable {
     /**
-     * 物品最小存储单元
+     * 收货单头id
      */
-    @TableId(value = "skuno")
-    private Long skuno;
+    @TableId(value = "rhead_id")
+    private Long rheadId;
 
     /**
-     * 物品名称
+     * 订单来源
      */
-    @TableField(value = "name")
-    private String name;
+    @TableField(value = "source")
+    private String source;
 
     /**
-     * 物品的种类
+     * 负责人姓名
      */
-    @TableField(value = "spuno")
-    private Long spuno;
+    @TableField(value = "manager_name")
+    private String managerName;
 
     /**
-     * 物品的规格
+     * 负责人电话
      */
-    @TableField(value = "spec_id")
-    private Long specId;
+    @TableField(value = "manager_telephone")
+    private String managerTelephone;
 
     /**
-     * 物品的批次号
+     * 订单状态
      */
-    @TableField(value = "batch_id")
-    private Long batchId;
+    @TableField(value = "status")
+    private String status;
 
     /**
-     * 检验单编号
+     * 批次id
      */
-    @TableField(value = "check_id")
-    private Long checkId;
+    @TableField(value = "batch_list")
+    private Object batchList;
 
     /**
-     * 生产日期
+     * 结束时间
      */
-    @TableField(value = "date_manufacture")
-    private Date dateManufacture;
+    @TableField(value = "endTime")
+    private Date endtime;
+
+    /**
+     * 描述
+     */
+    @TableField(value = "message")
+    private Long message;
 
     /**
      * 创建时间

@@ -10,52 +10,34 @@ import lombok.Data;
 
 /**
  * 
- * @TableName o_goods_unit
+ * @TableName t_receipt_line
  */
-@TableName(value ="o_goods_unit")
+@TableName(value ="t_receipt_line")
 @Data
-public class OGoodsUnit implements Serializable {
+public class TReceiptLine implements Serializable {
     /**
-     * 物品最小存储单元
+     * 批次号
      */
-    @TableId(value = "skuno")
-    private Long skuno;
-
-    /**
-     * 物品名称
-     */
-    @TableField(value = "name")
-    private String name;
-
-    /**
-     * 物品的种类
-     */
-    @TableField(value = "spuno")
-    private Long spuno;
-
-    /**
-     * 物品的规格
-     */
-    @TableField(value = "spec_id")
-    private Long specId;
-
-    /**
-     * 物品的批次号
-     */
-    @TableField(value = "batch_id")
+    @TableId(value = "batch_id")
     private Long batchId;
 
     /**
-     * 检验单编号
+     * 检验单头
      */
-    @TableField(value = "check_id")
-    private Long checkId;
+    @TableField(value = "check_head_id")
+    private Long checkHeadId;
 
     /**
-     * 生产日期
+     * 状态
      */
-    @TableField(value = "date_manufacture")
-    private Date dateManufacture;
+    @TableField(value = "status")
+    private String status;
+
+    /**
+     * 收货单物品的编号
+     */
+    @TableField(value = "item_list")
+    private Object itemList;
 
     /**
      * 创建时间

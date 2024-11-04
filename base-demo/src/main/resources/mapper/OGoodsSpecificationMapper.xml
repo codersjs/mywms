@@ -10,8 +10,9 @@
             <result property="spuName" column="spu_name" jdbcType="VARCHAR"/>
             <result property="specName" column="spec_name" jdbcType="VARCHAR"/>
             <result property="stockMaxNum" column="stock_max_num" jdbcType="DOUBLE"/>
+            <result property="unitWeight" column="unit_weight" jdbcType="DOUBLE"/>
             <result property="stockType" column="stock_type" jdbcType="VARCHAR"/>
-            <result property="stockMessage" column="stock_message" jdbcType="BIGINT"/>
+            <result property="stockMessage" column="stock_message" jdbcType="VARCHAR"/>
             <result property="totalQuantity" column="total_quantity" jdbcType="DOUBLE"/>
             <result property="availableQuantity" column="available_quantity" jdbcType="DOUBLE"/>
             <result property="warnTotalNum" column="warn_total_num" jdbcType="DOUBLE"/>
@@ -22,9 +23,9 @@
 
     <sql id="Base_Column_List">
         specid,spuno,spu_name,
-        spec_name,stock_max_num,stock_type,
-        stock_message,total_quantity,available_quantity,
-        warn_total_num,createTime,updateTime,
-        is_delete
+        spec_name,stock_max_num,unit_weight,
+        stock_type,stock_message,total_quantity,
+        available_quantity,warn_total_num,createTime,
+        updateTime,is_delete
     </sql>
 </mapper>

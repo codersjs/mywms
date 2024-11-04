@@ -1,8 +1,7 @@
 package org.example.GoodsDemo.service.Impl;
 
 import com.alibaba.fastjson2.JSONObject;
-import com.alibaba.fastjson2.JSONReader;
-import org.example.GoodsDemo.demo.goodsSpecification;
+import org.example.GoodsDemo.demo.GoodsSpecRequest;
 import org.example.GoodsDemo.service.SpecificationService;
 import org.example.o_mysql.domain.OGoodsSpecification;
 import org.example.o_mysql.domain.OGoodsType;
@@ -12,7 +11,6 @@ import org.example.utilAndCommonDemo.Exception.BusinessException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.lang.reflect.Type;
 import java.util.List;
 
 @Service
@@ -38,9 +36,9 @@ public class SpecificationServiceImpl implements SpecificationService {
         // 在spu中增加
         OGoodsType oGoodsType = goodsTypeService.getById(spuid);
         // 获取json字符串
-        List<goodsSpecification> list = JSONObject.parseObject((String) oGoodsType.getSpecificationTypeList(),List.class);
+        List<GoodsSpecRequest> list = JSONObject.parseObject((String) oGoodsType.getSpecificationTypeList(),List.class);
 
-        goodsSpecification specification = new goodsSpecification();
+        GoodsSpecRequest specification = new GoodsSpecRequest();
         specification.setSpecName(specname);
         specification.setStockType(stocktype);
         specification.setStockMaxNum(stockmaxnum);
@@ -72,10 +70,10 @@ public class SpecificationServiceImpl implements SpecificationService {
         OGoodsSpecification specification = goodsSpecificationService.getById(specid);
 
         if (specification==null) {
-            throw new BusinessException("444","该规格不存在或者已经被删除");
+            throw new BusinessException("该规格不存在或者已经被删除");
         }
         if (specification.getTotalQuantity() > 0) {
-            throw new BusinessException("444","货架上存在该规格下的物品");
+            throw new BusinessException("货架上存在该规格下的物品");
         }
 
         // 进行删除
@@ -90,7 +88,7 @@ public class SpecificationServiceImpl implements SpecificationService {
         for (int i = 0; i < list.size(); i++) {
             JSONObject jsonObject = JSONObject.from(list.get(i));
             String ch = jsonObject.toJSONString(jsonObject);
-            goodsSpecification specification2 = JSONObject.parseObject(ch, goodsSpecification.class);
+            GoodsSpecRequest specification2 = JSONObject.parseObject(ch, GoodsSpecRequest.class);
             if (specification2.getSpecName().equals(specname)) {
                 x = i;
             }
@@ -101,7 +99,8 @@ public class SpecificationServiceImpl implements SpecificationService {
         goodsTypeService.updateById(oGoodsType);
         goodsSpecificationService.removeById(specid);
 
-
-
     }
+
+
+
 }

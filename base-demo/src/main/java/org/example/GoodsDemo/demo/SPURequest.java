@@ -8,5 +8,5 @@ import java.util.List;
 public class SPURequest {
     private String spuname;
     private Integer defaultShelfLife;
-    private List<goodsSpecification> specList;
+    private List<GoodsSpecRequest> specList;
 }

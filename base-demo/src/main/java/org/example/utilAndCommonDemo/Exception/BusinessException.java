@@ -7,13 +7,10 @@ public class BusinessException extends RuntimeException{
 
     private String code;
 
-    public BusinessException(String code) {
-        this.code = code;
-    }
 
-    public BusinessException(String code, String message) {
+    public BusinessException(String message) {
         super(message);
-        this.code = code;
+        this.code = "414";
     }
 
     public String getCode() {

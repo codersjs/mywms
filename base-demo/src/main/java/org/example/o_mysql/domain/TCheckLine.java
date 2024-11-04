@@ -10,52 +10,64 @@ import lombok.Data;
 
 /**
  * 
- * @TableName o_goods_unit
+ * @TableName t_check_line
  */
-@TableName(value ="o_goods_unit")
+@TableName(value ="t_check_line")
 @Data
-public class OGoodsUnit implements Serializable {
+public class TCheckLine implements Serializable {
     /**
-     * 物品最小存储单元
+     * 检验单头
      */
-    @TableId(value = "skuno")
-    private Long skuno;
+    @TableId(value = "cheadid")
+    private Long cheadid;
 
     /**
-     * 物品名称
-     */
-    @TableField(value = "name")
-    private String name;
-
-    /**
-     * 物品的种类
-     */
-    @TableField(value = "spuno")
-    private Long spuno;
-
-    /**
-     * 物品的规格
-     */
-    @TableField(value = "spec_id")
-    private Long specId;
-
-    /**
-     * 物品的批次号
+     * 批次号
      */
     @TableField(value = "batch_id")
     private Long batchId;
 
     /**
-     * 检验单编号
+     * spuid
      */
-    @TableField(value = "check_id")
-    private Long checkId;
+    @TableField(value = "spu_id")
+    private Long spuId;
 
     /**
-     * 生产日期
+     * 规格id
      */
-    @TableField(value = "date_manufacture")
-    private Date dateManufacture;
+    @TableField(value = "spec_id")
+    private Long specId;
+
+    /**
+     * 操作人姓名
+     */
+    @TableField(value = "operate_name")
+    private String operateName;
+
+    /**
+     * 操作人人电话
+     */
+    @TableField(value = "operate_telephone")
+    private String operateTelephone;
+
+    /**
+     * 状态
+     */
+    @TableField(value = "status")
+    private String status;
+
+    /**
+     * 总数量
+     */
+    @TableField(value = "total_num")
+    private Double totalNum;
+
+    /**
+     * 数量的单位
+     */
+    @TableField(value = "unit_num")
+    private String unitNum;
 
     /**
      * 创建时间

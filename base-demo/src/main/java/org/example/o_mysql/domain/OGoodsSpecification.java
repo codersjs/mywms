@@ -46,6 +46,12 @@ public class OGoodsSpecification implements Serializable {
     private Double stockMaxNum;
 
     /**
+     * 单位重量
+     */
+    @TableField(value = "unit_weight")
+    private Double unitWeight;
+
+    /**
      * 存储形式
      */
     @TableField(value = "stock_type")
@@ -55,7 +61,7 @@ public class OGoodsSpecification implements Serializable {
      * 存储描述
      */
     @TableField(value = "stock_message")
-    private Long stockMessage;
+    private String stockMessage;
 
     /**
      * 总的数量

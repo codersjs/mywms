@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.o_mysql.mapper.TCheckHeadMapper">
+
+    <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TCheckHead">
+            <id property="cheadid" column="cheadid" jdbcType="BIGINT"/>
+            <result property="batchId" column="batch_id" jdbcType="BIGINT"/>
+            <result property="managerName" column="manager_name" jdbcType="VARCHAR"/>
+            <result property="managerTelephone" column="manager_telephone" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="report" column="report" jdbcType="VARCHAR"/>
+            <result property="checkLineList" column="check_line_list" jdbcType="OTHER"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cheadid,batch_id,manager_name,
+        manager_telephone,status,report,
+        check_line_list,createTime,updateTime,
+        is_delete
+    </sql>
+</mapper>

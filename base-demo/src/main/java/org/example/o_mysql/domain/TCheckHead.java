@@ -10,52 +10,52 @@ import lombok.Data;
 
 /**
  * 
- * @TableName o_goods_unit
+ * @TableName t_check_head
  */
-@TableName(value ="o_goods_unit")
+@TableName(value ="t_check_head")
 @Data
-public class OGoodsUnit implements Serializable {
+public class TCheckHead implements Serializable {
     /**
-     * 物品最小存储单元
+     * 检验单头
      */
-    @TableId(value = "skuno")
-    private Long skuno;
+    @TableId(value = "cheadid")
+    private Long cheadid;
 
     /**
-     * 物品名称
-     */
-    @TableField(value = "name")
-    private String name;
-
-    /**
-     * 物品的种类
-     */
-    @TableField(value = "spuno")
-    private Long spuno;
-
-    /**
-     * 物品的规格
-     */
-    @TableField(value = "spec_id")
-    private Long specId;
-
-    /**
-     * 物品的批次号
+     * 批次号
      */
     @TableField(value = "batch_id")
     private Long batchId;
 
     /**
-     * 检验单编号
+     * 负责人姓名
      */
-    @TableField(value = "check_id")
-    private Long checkId;
+    @TableField(value = "manager_name")
+    private String managerName;
 
     /**
-     * 生产日期
+     * 负责人电话
      */
-    @TableField(value = "date_manufacture")
-    private Date dateManufacture;
+    @TableField(value = "manager_telephone")
+    private String managerTelephone;
+
+    /**
+     * 状态
+     */
+    @TableField(value = "status")
+    private String status;
+
+    /**
+     * 状态
+     */
+    @TableField(value = "report")
+    private String report;
+
+    /**
+     * 检验单行
+     */
+    @TableField(value = "check_line_list")
+    private Object checkLineList;
 
     /**
      * 创建时间

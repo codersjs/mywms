@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.o_mysql.mapper.TReceiptHeadMapper">
+
+    <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TReceiptHead">
+            <id property="rheadId" column="rhead_id" jdbcType="BIGINT"/>
+            <result property="source" column="source" jdbcType="VARCHAR"/>
+            <result property="managerName" column="manager_name" jdbcType="VARCHAR"/>
+            <result property="managerTelephone" column="manager_telephone" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="batchList" column="batch_list" jdbcType="OTHER"/>
+            <result property="endtime" column="endTime" jdbcType="TIMESTAMP"/>
+            <result property="message" column="message" jdbcType="BIGINT"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        rhead_id,source,manager_name,
+        manager_telephone,status,batch_list,
+        endTime,message,createTime,
+        updateTime,is_delete
+    </sql>
+</mapper>
