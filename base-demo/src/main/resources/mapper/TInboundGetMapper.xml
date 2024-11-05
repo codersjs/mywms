@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.o_mysql.mapper.TInboundGetMapper">
+
+    <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TInboundGet">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="batchId" column="batch_id" jdbcType="BIGINT"/>
+            <result property="goodList" column="good_list" jdbcType="OTHER"/>
+            <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
+            <result property="resId" column="res_id" jdbcType="BIGINT"/>
+            <result property="sheId" column="she_id" jdbcType="BIGINT"/>
+            <result property="freId" column="fre_id" jdbcType="BIGINT"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,batch_id,good_list,
+        ware_id,res_id,she_id,
+        fre_id,createTime,updateTime,
+        is_delete
+    </sql>
+</mapper>
