@@ -66,7 +66,7 @@ public class InspectServiceImpl implements InspectService {
 
         List<String> listitem = JSONObject.parseObject(String.valueOf(receiptLine.getItemList()),List.class);
         receiptLine.setStatus(EnumReceiptTask.INSOngoing.getCode());
-        receiptLineService.updateById(receiptLine);
+
 
         // 修改head的订单
         TReceiptHead receiptHead = receiptHeadService.getById(receiptLine.getRheadId());
@@ -81,7 +81,8 @@ public class InspectServiceImpl implements InspectService {
         checkHead.setManagerTelephone(telephone);
         checkHead.setStatus(EnumReceiptTask.INSNotStart.getCode());
         List<String> list = new ArrayList<>();
-
+        receiptLine.setCheckHeadId(checkHead.getCheadid());
+        receiptLineService.updateById(receiptLine);
 
         for (String x : listitem) {
             TReceiptItem receiptItem = receiptItemService.getById(x);

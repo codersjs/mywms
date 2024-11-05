@@ -31,7 +31,7 @@ public class TReceiptLine implements Serializable {
      * 检验单头
      */
     @TableField(value = "check_head_id")
-    private Long checkHeadId;
+    private String checkHeadId;
 
     /**
      * 状态

@@ -7,7 +7,7 @@
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TReceiptLine">
             <id property="batchId" column="batch_id" jdbcType="VARCHAR"/>
             <result property="rheadId" column="rhead_id" jdbcType="VARCHAR"/>
-            <result property="checkHeadId" column="check_head_id" jdbcType="BIGINT"/>
+            <result property="checkHeadId" column="check_head_id" jdbcType="VARCHAR"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>
             <result property="itemList" column="item_list" jdbcType="OTHER"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
