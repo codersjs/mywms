@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【o_freight】的数据库操作Service实现
-* @createDate 2024-11-05 09:45:47
+* @createDate 2024-11-05 21:34:11
 */
 @Service
 public class OFreightServiceImpl extends ServiceImpl<OFreightMapper, OFreight>

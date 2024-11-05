@@ -21,6 +21,8 @@
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+            <result property="increaseNum" column="increase_num" jdbcType="DOUBLE"/>
+            <result property="decreaseNum" column="decrease_num" jdbcType="DOUBLE"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -29,6 +31,6 @@
         specid,stocks_num,stocks_max_num,
         ware_id,res_id,she_id,
         description,createTime,updateTime,
-        is_delete
+        is_delete,increase_num,decrease_num
     </sql>
 </mapper>

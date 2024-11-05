@@ -111,6 +111,18 @@ public class OFreight implements Serializable {
     @TableField(value = "is_delete")
     private Integer isDelete;
 
+    /**
+     * 预增加数量
+     */
+    @TableField(value = "increase_num")
+    private Double increaseNum;
+
+    /**
+     * 预减少数量
+     */
+    @TableField(value = "decrease_num")
+    private Double decreaseNum;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
