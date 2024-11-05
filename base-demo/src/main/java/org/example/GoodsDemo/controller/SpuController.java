@@ -72,11 +72,6 @@ public class SpuController {
         return ResultData.sucess("200",null);
     }
 
-    @PostMapping("/set/weight")
-    public ResultData setUnitWeight(@RequestParam("spuid") Long spuid,@RequestParam("weight") Double weight) {
-        spuService.setUnitWeight(spuid,weight);
-        return ResultData.sucess("200",null);
-    }
 
 
 }

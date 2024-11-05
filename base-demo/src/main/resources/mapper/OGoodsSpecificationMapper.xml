@@ -10,7 +10,7 @@
             <result property="spuName" column="spu_name" jdbcType="VARCHAR"/>
             <result property="specName" column="spec_name" jdbcType="VARCHAR"/>
             <result property="stockMaxNum" column="stock_max_num" jdbcType="DOUBLE"/>
-            <result property="unitWeight" column="unit_weight" jdbcType="DOUBLE"/>
+            <result property="numUnit" column="num_unit" jdbcType="VARCHAR"/>
             <result property="stockType" column="stock_type" jdbcType="VARCHAR"/>
             <result property="stockMessage" column="stock_message" jdbcType="VARCHAR"/>
             <result property="totalQuantity" column="total_quantity" jdbcType="DOUBLE"/>
@@ -23,7 +23,7 @@
 
     <sql id="Base_Column_List">
         specid,spuno,spu_name,
-        spec_name,stock_max_num,unit_weight,
+        spec_name,stock_max_num,num_unit,
         stock_type,stock_message,total_quantity,
         available_quantity,warn_total_num,createTime,
         updateTime,is_delete

@@ -30,8 +30,9 @@ public class SpecificationController {
                               @RequestParam("spuname") String spuname,
                               @RequestParam("specname") String specname,
                               @RequestParam("stocktype") String stocktype,
-                              @RequestParam("stockmaxnum") Double stockmaxnum) {
-        specificationService.specadd(spuid,spuname,specname,stocktype,stockmaxnum);
+                              @RequestParam("stockmaxnum") Double stockmaxnum ,
+                              @RequestParam("numunit") String numunit) {
+        specificationService.specadd(spuid,spuname,specname,stocktype,stockmaxnum,numunit);
         return ResultData.sucess("200",null);
     }
 

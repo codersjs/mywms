@@ -61,8 +61,32 @@ public class IDcreate {
         String ans = "";
         for (int i = 0; i < length; i++) {
             Random r = new Random();
-            ans += R[r.nextInt(10)];
+            ans += R[r.nextInt(9)];
+            if (i == 0 && ans.equals("0")) {
+                ans = "";
+                i--;
+            }
         }
+        return Long.valueOf(ans);
+    }
+
+    public static Long getLongIdMIN6() {
+        String ans = "";
+        Random r = new Random();
+        for (int i = 0; i < 16; i++) {
+            if (r.nextInt(100)>=30) {
+                ans += R[r.nextInt(9)];
+                if (i == 0 && ans.equals("0")) {
+                    ans = "";
+                    i--;
+                }
+            }
+        }
+
+        while (ans.length()<=5) {
+            ans += R[r.nextInt(9)];
+        }
+
         return Long.valueOf(ans);
     }
 

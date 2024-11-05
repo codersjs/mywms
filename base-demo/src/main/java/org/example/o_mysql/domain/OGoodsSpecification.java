@@ -46,10 +46,10 @@ public class OGoodsSpecification implements Serializable {
     private Double stockMaxNum;
 
     /**
-     * 单位重量
+     * 记数单位
      */
-    @TableField(value = "unit_weight")
-    private Double unitWeight;
+    @TableField(value = "num_unit")
+    private String numUnit;
 
     /**
      * 存储形式

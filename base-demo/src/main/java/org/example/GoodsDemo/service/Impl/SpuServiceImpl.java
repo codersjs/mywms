@@ -9,8 +9,10 @@ import org.example.o_mysql.domain.OGoodsSpecification;
 import org.example.o_mysql.domain.OGoodsType;
 import org.example.o_mysql.service.OGoodsSpecificationService;
 import org.example.o_mysql.service.OGoodsTypeService;
+import org.example.utilAndCommonDemo.Enum.EnumGood;
 import org.example.utilAndCommonDemo.Exception.BusinessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -28,6 +30,7 @@ public class SpuServiceImpl implements SpuService {
     private SpecificationService specificationService;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void addSpu(String spuName, Integer shelife, List<GoodsSpecRequest> specList) {
         // json
         JSONObject jsonObject = new JSONObject();
@@ -49,6 +52,13 @@ public class SpuServiceImpl implements SpuService {
             OGoodsSpecification goodsSpecification = new OGoodsSpecification();
             goodsSpecification.setSpuName(spuName);
             goodsSpecification.setSpecName(specification.getSpecName());
+
+            // 如果单位类信息不对就报错
+            if (EnumGood.getReturnCodeEnum(specification.getNumunit()) == null) {
+                throw new BusinessException("单位不对或者没有检验");
+            }
+
+            goodsSpecification.setNumUnit(specification.getNumunit());
             // 1 是 货架，2 是 堆区
             if (specification.getStockType().equals("货架")||specification.getStockType().equals("堆区")) {
                 goodsSpecification.setStockType(specification.getStockType());
@@ -120,15 +130,4 @@ public class SpuServiceImpl implements SpuService {
         goodsTypeService.removeById(spuid);
 
     }
-
-    @Override
-    public void setUnitWeight(Long spuid, Double weight) {
-        OGoodsSpecification g = goodsSpecificationService.getById(spuid);
-        if (g==null) {
-            throw new BusinessException("无法寻找到正确规格");
-        }
-        g.setUnitWeight(weight);
-        goodsSpecificationService.save(g);
-    }
-
 }

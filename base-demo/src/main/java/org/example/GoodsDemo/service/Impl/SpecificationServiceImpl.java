@@ -23,7 +23,7 @@ public class SpecificationServiceImpl implements SpecificationService {
     private OGoodsTypeService goodsTypeService;
 
     @Override
-    public void specadd(Long spuid, String spuname, String specname, String stocktype, Double stockmaxnum) {
+    public void specadd(Long spuid, String spuname, String specname, String stocktype, Double stockmaxnum, String numunit) {
 
 
         OGoodsSpecification goodsSpec = new OGoodsSpecification();
@@ -32,7 +32,7 @@ public class SpecificationServiceImpl implements SpecificationService {
         goodsSpec.setSpecName(specname);
         goodsSpec.setStockType(stocktype);
         goodsSpec.setStockMaxNum(stockmaxnum);
-
+        goodsSpec.setNumUnit(numunit);
         // 在spu中增加
         OGoodsType oGoodsType = goodsTypeService.getById(spuid);
         // 获取json字符串

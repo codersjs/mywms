@@ -28,4 +28,11 @@ public class testmain {
         }
     }
 
+    @Test
+    void Test03() {
+        for (int i = 0;i<10;i++) {
+            System.out.println(IDcreate.getLongIdMIN6());
+        }
+    }
+
 }

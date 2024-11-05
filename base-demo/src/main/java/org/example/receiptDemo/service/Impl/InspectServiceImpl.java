@@ -1,23 +1,18 @@
 package org.example.receiptDemo.service.Impl;
 
 import com.alibaba.fastjson2.JSONObject;
-import org.example.o_mysql.domain.TCheckHead;
-import org.example.o_mysql.domain.TCheckLine;
-import org.example.o_mysql.domain.TReceiptItem;
-import org.example.o_mysql.domain.TReceiptLine;
-import org.example.o_mysql.service.TCheckHeadService;
-import org.example.o_mysql.service.TCheckLineService;
-import org.example.o_mysql.service.TReceiptItemService;
-import org.example.o_mysql.service.TReceiptLineService;
+import org.example.o_mysql.domain.*;
+import org.example.o_mysql.service.*;
 import org.example.receiptDemo.service.InspectService;
+import org.example.utilAndCommonDemo.Enum.EnumGood;
 import org.example.utilAndCommonDemo.Enum.EnumReceiptTask;
 import org.example.utilAndCommonDemo.Exception.BusinessException;
 import org.example.utilAndCommonDemo.unit.IDcreate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -34,6 +29,13 @@ public class InspectServiceImpl implements InspectService {
 
     @Resource
     private TCheckLineService checkLineService;
+
+    @Resource
+    private TReceiptHeadService receiptHeadService;
+
+    @Resource
+    private OGoodsSpecificationService goodsSpecificationService;
+
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -57,16 +59,19 @@ public class InspectServiceImpl implements InspectService {
         if (receiptLine == null) {
             throw new BusinessException("该批次不存在");
         }
-        if (receiptLine.getStatus().equals(EnumReceiptTask.RECFinish)) {
-            throw new BusinessException("该订单已经检验完成");
-        }
-        if (receiptLine.getStatus().equals(EnumReceiptTask.INSOngoing)) {
-            throw new BusinessException("该订单已经在检验中");
+        if (!receiptLine.getStatus().equals(EnumReceiptTask.INSAwait.getCode())) {
+            throw new BusinessException("该订单已经在检验中或者已经完成");
         }
 
-        List<String> listitem = JSONObject.parseObject(String.valueOf(receiptLine),List.class);
+
+        List<String> listitem = JSONObject.parseObject(String.valueOf(receiptLine.getItemList()),List.class);
         receiptLine.setStatus(EnumReceiptTask.INSOngoing.getCode());
         receiptLineService.updateById(receiptLine);
+
+        // 修改head的订单
+        TReceiptHead receiptHead = receiptHeadService.getById(receiptLine.getRheadId());
+        receiptHead.setStatus(EnumReceiptTask.RECOngoing.getCode());
+        receiptHeadService.updateById(receiptHead);
 
         // 创建验收单头
         TCheckHead checkHead = new TCheckHead();
@@ -81,7 +86,7 @@ public class InspectServiceImpl implements InspectService {
         for (String x : listitem) {
             TReceiptItem receiptItem = receiptItemService.getById(x);
             receiptItem.setStatus(EnumReceiptTask.INSOngoing.getCode());
-            receiptItemService.save(receiptItem);
+            receiptItemService.updateById(receiptItem);
 
             // 创建验收单行
             TCheckLine checkLine = new TCheckLine();
@@ -90,7 +95,7 @@ public class InspectServiceImpl implements InspectService {
             checkLine.setRitemId(x);
             checkLine.setSpuId(receiptItem.getSpuId());
             checkLine.setSpecId(receiptItem.getSpecId());
-            checkLine.setItemList(EnumReceiptTask.INSisNULL.getCode());
+            checkLine.setItemList(JSONObject.toJSONString(EnumReceiptTask.INSisNULL.getCode()));
             checkLine.setOperateName(EnumReceiptTask.INSisNULL.getCode());
             checkLine.setOperateTelephone(EnumReceiptTask.INSisNULL.getCode());
             checkLine.setStatus(EnumReceiptTask.INSNotStart.getCode());
@@ -102,4 +107,60 @@ public class InspectServiceImpl implements InspectService {
         checkHeadService.save(checkHead);
 
     }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public synchronized void doInspect(String checkid, String name, String telephone, Double totalnum, Long specid) {
+        TCheckLine checkLine = checkLineService.getById(checkid);
+        if (checkLine == null) {
+            throw new BusinessException("不存在这个检验任务");
+        }
+
+        if (!checkLine.getStatus().equals(EnumReceiptTask.INSAwait.getCode())) {
+            throw new BusinessException("这个任务不需要检验,如果真的要检验请通知管理员进行复检");
+        }
+        // 更新入库单的状态
+        TReceiptItem receiptItem = receiptItemService.getById(checkLine.getRitemId());
+        receiptItem.setEndtime(new Date());
+        receiptItem.setStatus(EnumReceiptTask.INSFinish.getCode());
+        receiptItemService.updateById(receiptItem);
+
+        // 检验
+        checkLine.setOperateName(name);
+        checkLine.setOperateTelephone(telephone);
+        checkLine.setTotalNum(totalnum);
+        OGoodsSpecification specification = null;
+        if (specid != null) {
+            specification = goodsSpecificationService.getById(specid);
+            if (specification != null){
+                checkLine.setSpecId(specid);
+            } else {
+                throw new BusinessException("规格不对");
+            }
+        } else {
+            specification = goodsSpecificationService.getById(checkLine.getSpecId());
+        }
+
+
+        // 检验完成后
+        if (specification.getNumUnit().equals(EnumGood.Number.getCode())) {
+            List<Long> list = new ArrayList<>();
+            for (int i = 0; i < totalnum; i++) {
+                Long id = IDcreate.getLongIdMIN6();
+                list.add(id);
+            }
+            checkLine.setItemList(JSONObject.toJSONString(list));
+        } else {
+
+            String jsonString = JSONObject.toJSONString(EnumGood.Weight.getCode());
+            checkLine.setItemList(jsonString);
+
+        }
+
+        checkLine.setStatus(EnumReceiptTask.INSFinish.getCode());
+        checkLineService.updateById(checkLine);
+
+    }
+
+
 }

@@ -15,6 +15,4 @@ public interface SpuService {
     void setWarnnum(Long spuid, Double minnum);
 
     void deletespu(Long spuid);
-
-    void setUnitWeight(Long spuid, Double weight);
 }

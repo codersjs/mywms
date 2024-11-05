@@ -7,4 +7,5 @@ public class GoodsSpecRequest {
     private String specName;
     private String stockType;
     private Double stockMaxNum;
+        private String numunit;
 }
