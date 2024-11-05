@@ -5,7 +5,8 @@
 <mapper namespace="org.example.o_mysql.mapper.TReceiptLineMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TReceiptLine">
-            <id property="batchId" column="batch_id" jdbcType="BIGINT"/>
+            <id property="batchId" column="batch_id" jdbcType="VARCHAR"/>
+            <result property="rheadId" column="rhead_id" jdbcType="VARCHAR"/>
             <result property="checkHeadId" column="check_head_id" jdbcType="BIGINT"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>
             <result property="itemList" column="item_list" jdbcType="OTHER"/>
@@ -15,8 +16,8 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        batch_id,check_head_id,status,
-        item_list,createTime,updateTime,
-        is_delete
+        batch_id,rhead_id,check_head_id,
+        status,item_list,createTime,
+        updateTime,is_delete
     </sql>
 </mapper>

@@ -1,6 +1,6 @@
 package org.example.receiptDemo.controller;
 
-import org.example.receiptDemo.demo.ReceiptRequest;
+import org.example.receiptDemo.model.ReceiptModel.ReceiptRequest;
 import org.example.receiptDemo.service.ReceiptService;
 import org.example.utilAndCommonDemo.Response.ResultData;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,9 +26,5 @@ public class receiptController {
         return new ResultData<>("200",null,"sucess");
     }
 
-    // 检验
-
-
-    // 创建上架任务
 
 }

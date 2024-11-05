@@ -19,13 +19,13 @@ public class TCheckHead implements Serializable {
      * 检验单头
      */
     @TableId(value = "cheadid")
-    private Long cheadid;
+    private String cheadid;
 
     /**
      * 批次号
      */
     @TableField(value = "batch_id")
-    private Long batchId;
+    private String batchId;
 
     /**
      * 负责人姓名

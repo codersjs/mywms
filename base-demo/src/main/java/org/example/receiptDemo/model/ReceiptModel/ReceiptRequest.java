@@ -1,4 +1,4 @@
-package org.example.receiptDemo.demo;
+package org.example.receiptDemo.model.ReceiptModel;
 
 import lombok.Data;
 
@@ -8,5 +8,7 @@ import java.util.List;
 public class ReceiptRequest {
 
     private String source;
+    private String name;
+    private String telephone;
     private List<BatchRequest> list;
 }

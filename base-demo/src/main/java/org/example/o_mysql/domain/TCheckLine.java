@@ -16,16 +16,22 @@ import lombok.Data;
 @Data
 public class TCheckLine implements Serializable {
     /**
-     * 检验单头
+     * 检验单行
      */
-    @TableId(value = "cheadid")
-    private Long cheadid;
+    @TableId(value = "checklineid")
+    private String checklineid;
 
     /**
-     * 批次号
+     * 检验单头
      */
-    @TableField(value = "batch_id")
-    private Long batchId;
+    @TableField(value = "cheadid")
+    private String cheadid;
+
+    /**
+     * 对应的物品单头
+     */
+    @TableField(value = "ritem_id")
+    private String ritemId;
 
     /**
      * spuid
@@ -38,6 +44,12 @@ public class TCheckLine implements Serializable {
      */
     @TableField(value = "spec_id")
     private Long specId;
+
+    /**
+     * sku的idList
+     */
+    @TableField(value = "item_list")
+    private Object itemList;
 
     /**
      * 操作人姓名
@@ -62,12 +74,6 @@ public class TCheckLine implements Serializable {
      */
     @TableField(value = "total_num")
     private Double totalNum;
-
-    /**
-     * 数量的单位
-     */
-    @TableField(value = "unit_num")
-    private String unitNum;
 
     /**
      * 创建时间

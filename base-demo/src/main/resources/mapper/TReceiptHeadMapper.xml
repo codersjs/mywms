@@ -5,7 +5,7 @@
 <mapper namespace="org.example.o_mysql.mapper.TReceiptHeadMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TReceiptHead">
-            <id property="rheadId" column="rhead_id" jdbcType="BIGINT"/>
+            <id property="rheadId" column="rhead_id" jdbcType="VARCHAR"/>
             <result property="source" column="source" jdbcType="VARCHAR"/>
             <result property="managerName" column="manager_name" jdbcType="VARCHAR"/>
             <result property="managerTelephone" column="manager_telephone" jdbcType="VARCHAR"/>

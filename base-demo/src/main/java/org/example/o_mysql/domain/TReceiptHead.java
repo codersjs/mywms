@@ -19,7 +19,7 @@ public class TReceiptHead implements Serializable {
      * 收货单头id
      */
     @TableId(value = "rhead_id")
-    private Long rheadId;
+    private String rheadId;
 
     /**
      * 订单来源

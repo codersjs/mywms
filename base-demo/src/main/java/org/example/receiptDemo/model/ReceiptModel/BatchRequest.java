@@ -1,4 +1,4 @@
-package org.example.receiptDemo.demo;
+package org.example.receiptDemo.model.ReceiptModel;
 
 import lombok.Data;
 

@@ -19,7 +19,13 @@ public class TReceiptItem implements Serializable {
      * 收货单头id
      */
     @TableId(value = "ritem_id")
-    private Long ritemId;
+    private String ritemId;
+
+    /**
+     * 批次号
+     */
+    @TableField(value = "batch_id")
+    private String batchId;
 
     /**
      * spuid
@@ -38,18 +44,6 @@ public class TReceiptItem implements Serializable {
      */
     @TableField(value = "get_num")
     private Double getNum;
-
-    /**
-     * 数量的单位
-     */
-    @TableField(value = "unit_num")
-    private String unitNum;
-
-    /**
-     * 单位重量
-     */
-    @TableField(value = "unit_weight")
-    private Double unitWeight;
 
     /**
      * 总重量

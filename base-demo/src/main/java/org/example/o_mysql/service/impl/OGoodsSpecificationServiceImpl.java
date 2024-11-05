@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【o_goods_specification】的数据库操作Service实现
-* @createDate 2024-11-04 21:24:49
+* @createDate 2024-11-05 09:45:47
 */
 @Service
 public class OGoodsSpecificationServiceImpl extends ServiceImpl<OGoodsSpecificationMapper, OGoodsSpecification>

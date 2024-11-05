@@ -5,8 +5,8 @@
 <mapper namespace="org.example.o_mysql.mapper.TCheckHeadMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TCheckHead">
-            <id property="cheadid" column="cheadid" jdbcType="BIGINT"/>
-            <result property="batchId" column="batch_id" jdbcType="BIGINT"/>
+            <id property="cheadid" column="cheadid" jdbcType="VARCHAR"/>
+            <result property="batchId" column="batch_id" jdbcType="VARCHAR"/>
             <result property="managerName" column="manager_name" jdbcType="VARCHAR"/>
             <result property="managerTelephone" column="manager_telephone" jdbcType="VARCHAR"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>

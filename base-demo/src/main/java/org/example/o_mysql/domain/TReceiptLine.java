@@ -19,7 +19,13 @@ public class TReceiptLine implements Serializable {
      * 批次号
      */
     @TableId(value = "batch_id")
-    private Long batchId;
+    private String batchId;
+
+    /**
+     * 收货单头id
+     */
+    @TableField(value = "rhead_id")
+    private String rheadId;
 
     /**
      * 检验单头

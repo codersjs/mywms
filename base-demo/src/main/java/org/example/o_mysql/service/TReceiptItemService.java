@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
 * @author 施
 * @description 针对表【t_receipt_item】的数据库操作Service
-* @createDate 2024-11-04 22:37:00
+* @createDate 2024-11-05 09:57:16
 */
 public interface TReceiptItemService extends IService<TReceiptItem> {
 

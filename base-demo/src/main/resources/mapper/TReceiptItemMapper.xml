@@ -5,12 +5,11 @@
 <mapper namespace="org.example.o_mysql.mapper.TReceiptItemMapper">
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TReceiptItem">
-            <id property="ritemId" column="ritem_id" jdbcType="BIGINT"/>
+            <id property="ritemId" column="ritem_id" jdbcType="VARCHAR"/>
+            <result property="batchId" column="batch_id" jdbcType="VARCHAR"/>
             <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
             <result property="specId" column="spec_id" jdbcType="BIGINT"/>
             <result property="getNum" column="get_num" jdbcType="DOUBLE"/>
-            <result property="unitNum" column="unit_num" jdbcType="VARCHAR"/>
-            <result property="unitWeight" column="unit_weight" jdbcType="DOUBLE"/>
             <result property="totalWeight" column="total_weight" jdbcType="DOUBLE"/>
             <result property="checkLineId" column="check_line_id" jdbcType="BIGINT"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>
@@ -21,10 +20,9 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        ritem_id,spu_id,spec_id,
-        get_num,unit_num,unit_weight,
-        total_weight,check_line_id,status,
-        endTime,createTime,updateTime,
-        is_delete
+        ritem_id,batch_id,spu_id,
+        spec_id,get_num,total_weight,
+        check_line_id,status,endTime,
+        createTime,updateTime,is_delete
     </sql>
 </mapper>
