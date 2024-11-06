@@ -1,4 +1,4 @@
-package org.example.GoodsDemo.demo;
+package org.example.GoodsDemo.model;
 
 import lombok.Data;
 

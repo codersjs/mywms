@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【t_inbound_head】的数据库操作Service实现
-* @createDate 2024-11-06 09:10:36
+* @createDate 2024-11-06 15:17:51
 */
 @Service
 public class TInboundHeadServiceImpl extends ServiceImpl<TInboundHeadMapper, TInboundHead>

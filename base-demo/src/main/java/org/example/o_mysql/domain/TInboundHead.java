@@ -22,12 +22,6 @@ public class TInboundHead implements Serializable {
     private Long id;
 
     /**
-     * spuid
-     */
-    @TableField(value = "spu_id")
-    private Long spuId;
-
-    /**
      * 取货的id列
      */
     @TableField(value = "get_id_list")
@@ -38,6 +32,18 @@ public class TInboundHead implements Serializable {
      */
     @TableField(value = "put_id_list")
     private Object putIdList;
+
+    /**
+     * 负责人姓名
+     */
+    @TableField(value = "manager_name")
+    private String managerName;
+
+    /**
+     * 负责人电话
+     */
+    @TableField(value = "manager_telephone")
+    private String managerTelephone;
 
     /**
      * 取货的任务完成数量
@@ -62,42 +68,6 @@ public class TInboundHead implements Serializable {
      */
     @TableField(value = "task_num_put")
     private Integer taskNumPut;
-
-    /**
-     * 规格id
-     */
-    @TableField(value = "spec_id")
-    private Long specId;
-
-    /**
-     * 总数量
-     */
-    @TableField(value = "item_num")
-    private Double itemNum;
-
-    /**
-     * 仓库编号
-     */
-    @TableField(value = "ware_id")
-    private Long wareId;
-
-    /**
-     * 库区编号
-     */
-    @TableField(value = "res_id")
-    private Long resId;
-
-    /**
-     * 货架编号
-     */
-    @TableField(value = "she_id")
-    private Long sheId;
-
-    /**
-     * 货位编号
-     */
-    @TableField(value = "fre_id")
-    private Long freId;
 
     /**
      * 状态

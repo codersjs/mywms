@@ -20,7 +20,11 @@
     </parent>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>4.2</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>

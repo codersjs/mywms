@@ -25,10 +25,22 @@ public class TInboundGet implements Serializable {
      * 批次
      */
     @TableField(value = "batch_id")
-    private Long batchId;
+    private String batchId;
 
     /**
-     * 取货的id列
+     * 负责人姓名
+     */
+    @TableField(value = "manager_name")
+    private String managerName;
+
+    /**
+     * 负责人电话
+     */
+    @TableField(value = "manager_telephone")
+    private String managerTelephone;
+
+    /**
+     * 取货的id列和数量
      */
     @TableField(value = "good_list")
     private Object goodList;

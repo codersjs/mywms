@@ -1,6 +1,6 @@
 package org.example.GoodsDemo.controller;
 
-import org.example.GoodsDemo.demo.SPURequest;
+import org.example.GoodsDemo.model.SPURequest;
 import org.example.GoodsDemo.service.SpuService;
 import org.example.utilAndCommonDemo.Response.ResultData;
 import org.springframework.web.bind.annotation.*;

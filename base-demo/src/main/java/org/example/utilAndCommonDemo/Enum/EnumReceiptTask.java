@@ -9,7 +9,8 @@ public enum EnumReceiptTask {
     INSOngoing("O","检验中"),
     INSFinish("F","检验完成"),
     INSisNULL("Notyet","暂时没有"),
-    INSNotStart("W","没有开始")
+    INSNotStart("W","没有开始"),
+    INSSHELVES("G","上架")
     ;
 
     private String code;

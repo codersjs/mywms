@@ -2,7 +2,7 @@ package org.example.GoodsDemo.service.Impl;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import org.example.GoodsDemo.demo.GoodsSpecRequest;
+import org.example.GoodsDemo.model.GoodsSpecRequest;
 import org.example.GoodsDemo.service.SpecificationService;
 import org.example.GoodsDemo.service.SpuService;
 import org.example.o_mysql.domain.OGoodsSpecification;

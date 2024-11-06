@@ -6,7 +6,9 @@
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TInboundGet">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="batchId" column="batch_id" jdbcType="BIGINT"/>
+            <result property="batchId" column="batch_id" jdbcType="VARCHAR"/>
+            <result property="managerName" column="manager_name" jdbcType="VARCHAR"/>
+            <result property="managerTelephone" column="manager_telephone" jdbcType="VARCHAR"/>
             <result property="goodList" column="good_list" jdbcType="OTHER"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
             <result property="resId" column="res_id" jdbcType="BIGINT"/>
@@ -18,9 +20,9 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,batch_id,good_list,
-        ware_id,res_id,she_id,
-        fre_id,createTime,updateTime,
-        is_delete
+        id,batch_id,manager_name,
+        manager_telephone,good_list,ware_id,
+        res_id,she_id,fre_id,
+        createTime,updateTime,is_delete
     </sql>
 </mapper>

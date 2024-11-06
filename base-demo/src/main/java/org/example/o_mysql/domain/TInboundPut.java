@@ -34,6 +34,18 @@ public class TInboundPut implements Serializable {
     private Long specId;
 
     /**
+     * 负责人姓名
+     */
+    @TableField(value = "manager_name")
+    private String managerName;
+
+    /**
+     * 负责人电话
+     */
+    @TableField(value = "manager_telephone")
+    private String managerTelephone;
+
+    /**
      * 总数量
      */
     @TableField(value = "item_num")

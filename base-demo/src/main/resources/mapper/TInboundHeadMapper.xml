@@ -6,19 +6,14 @@
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TInboundHead">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
             <result property="getIdList" column="get_id_list" jdbcType="OTHER"/>
             <result property="putIdList" column="put_id_list" jdbcType="OTHER"/>
+            <result property="managerName" column="manager_name" jdbcType="VARCHAR"/>
+            <result property="managerTelephone" column="manager_telephone" jdbcType="VARCHAR"/>
             <result property="finishTaskGet" column="finish_task_get" jdbcType="INTEGER"/>
             <result property="taskNumGet" column="task_num_get" jdbcType="INTEGER"/>
             <result property="finishTaskPut" column="finish_task_put" jdbcType="INTEGER"/>
             <result property="taskNumPut" column="task_num_put" jdbcType="INTEGER"/>
-            <result property="specId" column="spec_id" jdbcType="BIGINT"/>
-            <result property="itemNum" column="item_num" jdbcType="DOUBLE"/>
-            <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
-            <result property="resId" column="res_id" jdbcType="BIGINT"/>
-            <result property="sheId" column="she_id" jdbcType="BIGINT"/>
-            <result property="freId" column="fre_id" jdbcType="BIGINT"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
@@ -26,11 +21,10 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,spu_id,get_id_list,
-        put_id_list,finish_task_get,task_num_get,
-        finish_task_put,task_num_put,spec_id,
-        item_num,ware_id,res_id,
-        she_id,fre_id,status,
-        createTime,updateTime,is_delete
+        id,get_id_list,put_id_list,
+        manager_name,manager_telephone,finish_task_get,
+        task_num_get,finish_task_put,task_num_put,
+        status,createTime,updateTime,
+        is_delete
     </sql>
 </mapper>

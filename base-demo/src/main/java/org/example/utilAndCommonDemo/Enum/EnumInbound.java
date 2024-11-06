@@ -2,7 +2,7 @@ package org.example.utilAndCommonDemo.Enum;
 
 public enum EnumInbound {
     NEW("N","新订单"),
-    NEEDGET("G","去货中"),
+    NEEDGET("G","取货中"),
     NEEDPUT("P","放货中"),
     FINSH("F","完成");
 

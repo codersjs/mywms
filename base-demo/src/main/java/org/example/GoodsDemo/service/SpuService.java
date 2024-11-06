@@ -1,6 +1,6 @@
 package org.example.GoodsDemo.service;
 
-import org.example.GoodsDemo.demo.GoodsSpecRequest;
+import org.example.GoodsDemo.model.GoodsSpecRequest;
 
 
 import java.util.List;

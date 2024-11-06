@@ -8,6 +8,8 @@
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
             <result property="specId" column="spec_id" jdbcType="BIGINT"/>
+            <result property="managerName" column="manager_name" jdbcType="VARCHAR"/>
+            <result property="managerTelephone" column="manager_telephone" jdbcType="VARCHAR"/>
             <result property="itemNum" column="item_num" jdbcType="DOUBLE"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
             <result property="resId" column="res_id" jdbcType="BIGINT"/>
@@ -20,8 +22,9 @@
 
     <sql id="Base_Column_List">
         id,spu_id,spec_id,
-        item_num,ware_id,res_id,
-        she_id,fre_id,createTime,
-        updateTime,is_delete
+        manager_name,manager_telephone,item_num,
+        ware_id,res_id,she_id,
+        fre_id,createTime,updateTime,
+        is_delete
     </sql>
 </mapper>

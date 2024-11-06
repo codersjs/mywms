@@ -1,7 +1,7 @@
 package org.example.GoodsDemo.service.Impl;
 
 import com.alibaba.fastjson2.JSONObject;
-import org.example.GoodsDemo.demo.GoodsSpecRequest;
+import org.example.GoodsDemo.model.GoodsSpecRequest;
 import org.example.GoodsDemo.service.SpecificationService;
 import org.example.o_mysql.domain.OGoodsSpecification;
 import org.example.o_mysql.domain.OGoodsType;
