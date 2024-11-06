@@ -9,6 +9,8 @@ public class InBoundController {
 
     // 入库单头，入库单行（批次）
 
-    // 入库
+
+    // 取货物
+    // 入库，状态改变
 
 }

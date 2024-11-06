@@ -55,7 +55,7 @@ public class TReceiptItem implements Serializable {
      * 检验单行
      */
     @TableField(value = "check_line_id")
-    private Long checkLineId;
+    private String checkLineId;
 
     /**
      * 状态

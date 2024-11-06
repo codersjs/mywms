@@ -88,10 +88,12 @@ public class ReceiptServiceImpl implements ReceiptService {
                 itemList.add(item.getRitemId());
                 receiptItemService.save(item);
             }
+            batch.setTaskNum(itemList.size());
             batch.setItemList(JSONObject.toJSONString(itemList));
             receiptLineService.save(batch);
         }
         receiptHead.setBatchList(JSONObject.toJSONString(batchIdList));
+        receiptHead.setTaskNum(batchIdList.size());
         receiptHeadService.save(receiptHead);
     }
 

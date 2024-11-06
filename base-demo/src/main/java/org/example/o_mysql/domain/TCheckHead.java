@@ -75,6 +75,18 @@ public class TCheckHead implements Serializable {
     @TableField(value = "is_delete")
     private Integer isDelete;
 
+    /**
+     * 任务完成数量
+     */
+    @TableField(value = "finish_task")
+    private Integer finishTask;
+
+    /**
+     * 任务数量
+     */
+    @TableField(value = "task_num")
+    private Integer taskNum;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

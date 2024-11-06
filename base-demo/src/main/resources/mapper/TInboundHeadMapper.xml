@@ -9,6 +9,10 @@
             <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
             <result property="getIdList" column="get_id_list" jdbcType="OTHER"/>
             <result property="putIdList" column="put_id_list" jdbcType="OTHER"/>
+            <result property="finishTaskGet" column="finish_task_get" jdbcType="INTEGER"/>
+            <result property="taskNumGet" column="task_num_get" jdbcType="INTEGER"/>
+            <result property="finishTaskPut" column="finish_task_put" jdbcType="INTEGER"/>
+            <result property="taskNumPut" column="task_num_put" jdbcType="INTEGER"/>
             <result property="specId" column="spec_id" jdbcType="BIGINT"/>
             <result property="itemNum" column="item_num" jdbcType="DOUBLE"/>
             <result property="wareId" column="ware_id" jdbcType="BIGINT"/>
@@ -23,9 +27,10 @@
 
     <sql id="Base_Column_List">
         id,spu_id,get_id_list,
-        put_id_list,spec_id,item_num,
-        ware_id,res_id,she_id,
-        fre_id,status,createTime,
-        updateTime,is_delete
+        put_id_list,finish_task_get,task_num_get,
+        finish_task_put,task_num_put,spec_id,
+        item_num,ware_id,res_id,
+        she_id,fre_id,status,
+        createTime,updateTime,is_delete
     </sql>
 </mapper>

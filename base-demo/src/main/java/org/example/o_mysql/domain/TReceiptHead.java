@@ -46,6 +46,18 @@ public class TReceiptHead implements Serializable {
     private String status;
 
     /**
+     * 任务完成数量
+     */
+    @TableField(value = "finish_task")
+    private Integer finishTask;
+
+    /**
+     * 任务数量
+     */
+    @TableField(value = "task_num")
+    private Integer taskNum;
+
+    /**
      * 批次id
      */
     @TableField(value = "batch_list")

@@ -15,12 +15,14 @@
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+            <result property="finishTask" column="finish_task" jdbcType="INTEGER"/>
+            <result property="taskNum" column="task_num" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         cheadid,batch_id,manager_name,
         manager_telephone,status,report,
         check_line_list,createTime,updateTime,
-        is_delete
+        is_delete,finish_task,task_num
     </sql>
 </mapper>

@@ -40,6 +40,30 @@ public class TInboundHead implements Serializable {
     private Object putIdList;
 
     /**
+     * 取货的任务完成数量
+     */
+    @TableField(value = "finish_task_get")
+    private Integer finishTaskGet;
+
+    /**
+     * 取货任务数量
+     */
+    @TableField(value = "task_num_get")
+    private Integer taskNumGet;
+
+    /**
+     * 放货的任务完成数量
+     */
+    @TableField(value = "finish_task_put")
+    private Integer finishTaskPut;
+
+    /**
+     * 放货任务数量
+     */
+    @TableField(value = "task_num_put")
+    private Integer taskNumPut;
+
+    /**
      * 规格id
      */
     @TableField(value = "spec_id")

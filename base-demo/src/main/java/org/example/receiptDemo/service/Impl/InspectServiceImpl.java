@@ -87,7 +87,7 @@ public class InspectServiceImpl implements InspectService {
         for (String x : listitem) {
             TReceiptItem receiptItem = receiptItemService.getById(x);
             receiptItem.setStatus(EnumReceiptTask.INSOngoing.getCode());
-            receiptItemService.updateById(receiptItem);
+
 
             // 创建验收单行
             TCheckLine checkLine = new TCheckLine();
@@ -102,9 +102,12 @@ public class InspectServiceImpl implements InspectService {
             checkLine.setStatus(EnumReceiptTask.INSNotStart.getCode());
             checkLine.setTotalNum(-1D);
             list.add(checkLine.getCheadid());
+            receiptItem.setCheckLineId(checkLine.getChecklineid());
             checkLineService.save(checkLine);
+            receiptItemService.updateById(receiptItem);
         }
         checkHead.setCheckLineList(JSONObject.toJSONString(list));
+        checkHead.setTaskNum(listitem.size());
         checkHeadService.save(checkHead);
 
     }
@@ -161,6 +164,37 @@ public class InspectServiceImpl implements InspectService {
         checkLine.setStatus(EnumReceiptTask.INSFinish.getCode());
         checkLineService.updateById(checkLine);
 
+        // 状态改变
+
+        TCheckHead checkHead = checkHeadService.getById(checkLine.getCheadid());
+        TReceiptLine receiptLine = receiptLineService.getById(checkHead.getBatchId());
+
+        checkHead.setFinishTask(checkHead.getFinishTask()+1);
+        receiptLine.setFinishTask(receiptLine.getFinishTask()+1);
+        if (receiptLine.getFinishTask() == receiptLine.getTaskNum()) {
+
+            receiptLine.setStatus(EnumReceiptTask.RECFinish.getCode());
+            TReceiptHead receiptHead = receiptHeadService.getById(receiptLine.getRheadId());
+            receiptHead.setFinishTask(receiptHead.getFinishTask()+1);
+
+            if (receiptHead.getFinishTask() == receiptHead.getTaskNum()) {
+                receiptHead.setStatus(EnumReceiptTask.RECFinish.getCode());
+            }
+
+            receiptHeadService.updateById(receiptHead);
+
+        } else {
+            receiptLine.setStatus(EnumReceiptTask.RECOngoing.getCode());
+        }
+
+
+        if (checkHead.getTaskNum() == checkHead.getFinishTask()) {
+            checkHead.setStatus(EnumReceiptTask.RECFinish.getCode());
+        } else {
+            checkHead.setStatus(EnumReceiptTask.RECOngoing.getCode());
+        }
+        receiptLineService.updateById(receiptLine);
+        checkHeadService.updateById(checkHead);
     }
 
 

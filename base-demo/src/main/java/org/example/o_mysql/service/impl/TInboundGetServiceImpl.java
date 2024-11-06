@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【t_inbound_get】的数据库操作Service实现
-* @createDate 2024-11-05 22:29:16
+* @createDate 2024-11-06 09:10:36
 */
 @Service
 public class TInboundGetServiceImpl extends ServiceImpl<TInboundGetMapper, TInboundGet>

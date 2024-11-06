@@ -11,7 +11,7 @@
             <result property="specId" column="spec_id" jdbcType="BIGINT"/>
             <result property="getNum" column="get_num" jdbcType="DOUBLE"/>
             <result property="totalWeight" column="total_weight" jdbcType="DOUBLE"/>
-            <result property="checkLineId" column="check_line_id" jdbcType="BIGINT"/>
+            <result property="checkLineId" column="check_line_id" jdbcType="VARCHAR"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>
             <result property="endtime" column="endTime" jdbcType="TIMESTAMP"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>

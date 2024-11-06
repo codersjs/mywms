@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【t_receipt_item】的数据库操作Service实现
-* @createDate 2024-11-05 09:57:16
+* @createDate 2024-11-06 09:32:26
 */
 @Service
 public class TReceiptItemServiceImpl extends ServiceImpl<TReceiptItemMapper, TReceiptItem>

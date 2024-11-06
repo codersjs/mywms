@@ -40,6 +40,18 @@ public class TReceiptLine implements Serializable {
     private String status;
 
     /**
+     * 任务完成数量
+     */
+    @TableField(value = "finish_task")
+    private Integer finishTask;
+
+    /**
+     * 任务数量
+     */
+    @TableField(value = "task_num")
+    private Integer taskNum;
+
+    /**
      * 收货单物品的编号
      */
     @TableField(value = "item_list")

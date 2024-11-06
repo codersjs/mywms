@@ -9,6 +9,8 @@
             <result property="rheadId" column="rhead_id" jdbcType="VARCHAR"/>
             <result property="checkHeadId" column="check_head_id" jdbcType="VARCHAR"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="finishTask" column="finish_task" jdbcType="INTEGER"/>
+            <result property="taskNum" column="task_num" jdbcType="INTEGER"/>
             <result property="itemList" column="item_list" jdbcType="OTHER"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
@@ -17,7 +19,8 @@
 
     <sql id="Base_Column_List">
         batch_id,rhead_id,check_head_id,
-        status,item_list,createTime,
-        updateTime,is_delete
+        status,finish_task,task_num,
+        item_list,createTime,updateTime,
+        is_delete
     </sql>
 </mapper>
