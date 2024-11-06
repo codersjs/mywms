@@ -47,18 +47,37 @@ public class testmain {
 
     @Test
     void Test04() {
-        int Fnum = 20;
+        List<String> s = new ArrayList<>();
+        s.add("1");
+        s.add("2");
+        s.add("3");
+        s.add("4");
+        s.add("5");
+        List<String> rmall = new ArrayList<>();
+        for (String t : s) {
+            if (Integer.parseInt(t) % 2 == 0) {
+                System.out.println(t);
+            }else {
+                rmall.add(t);
+            }
+        }
+        s.removeAll(rmall);
+        System.out.println(s);
 
-        // 获取为空的容器(100个)
+    }
+
+    @Test
+    void Test05() {
         LambdaQueryWrapper  wrapper = new LambdaQueryWrapper<OFreight>()
-                .ge(OFreight::getStocksNum,0)
-                .ge(OFreight::getIncreaseNum,0);
+                .gtSql(OFreight::getStocksMaxNum,"stocks_num+increase_num");
         // 分页
-        Page<OFreight> page = new Page(0,Fnum);
+        Page<OFreight> page = new Page(0,20);
 
         // 获取分页
-        List<OFreight> freightList = (List<OFreight>) oFreightService.page(page,wrapper);
-        System.out.println(freightList.size());
+        List<OFreight> freightList = oFreightService.page(page,wrapper).getRecords();
+        System.out.println(freightList);
     }
+
+
 
 }

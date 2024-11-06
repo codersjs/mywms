@@ -3,9 +3,7 @@ package org.example.receiptDemo.service.Impl;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.apache.catalina.User;
 import org.example.o_mysql.domain.*;
 import org.example.o_mysql.service.*;
 import org.example.receiptDemo.model.InboudModel.InboundGet;
@@ -72,7 +70,7 @@ public class InBoundServiceImpl implements InBoundService {
         Page<OFreight> page = new Page(0,Fnum);
 
         // 获取分页
-        List<OFreight> freightList = (List<OFreight>) oFreightService.page(page,wrapper);
+        List<OFreight> freightList = oFreightService.page(page,wrapper).getRecords();
 
         // 放货任务的ID
         List<Long> putlistID = new ArrayList<>();
@@ -116,7 +114,7 @@ public class InBoundServiceImpl implements InBoundService {
                 for (OFreight f : this.getSPUAndSPEC(checkLine.getSpuId(), checkLine.getSpecId())) {
                     if (total == 0D) break;
                     Double oknum = f.getStocksMaxNum() - f.getStocksNum() - f.getIncreaseNum();
-
+                    if (oknum<=0) continue;
                     if (total >= oknum) {
                         total -= oknum;
                         // 生成put任务
@@ -128,8 +126,10 @@ public class InBoundServiceImpl implements InBoundService {
                         total = 0D;
                     }
                 }
-                // 需要删除的容器
-                List<Integer> remList = new ArrayList<>();
+
+                // 建立删除队列
+                List<OFreight> del = new ArrayList<>();
+
                 // 2. 放入新的容器中
                 for (int i = 0; i < freightList.size(); i++) {
                     if (total == 0D) break;
@@ -138,11 +138,12 @@ public class InBoundServiceImpl implements InBoundService {
                     if (f.getStocksMaxNum() >= 0.0001) {
                         if (checkLine.getSpecId().equals(f.getSpecid())) {
                             Double oknum = f.getStocksMaxNum() - f.getIncreaseNum();
+                            if (oknum<=0) continue;
                             if (total>=oknum) {
                                 total -= oknum;
                                 f.setIncreaseNum(f.getIncreaseNum() + oknum);
                                 putlistID.add(this.createputTask(f, f.getStocksMaxNum()));
-                                remList.add(i);
+                                del.add(f);
                             } else {
                                 f.setIncreaseNum(f.getIncreaseNum() + total);
                                 total = 0D;
@@ -163,7 +164,7 @@ public class InBoundServiceImpl implements InBoundService {
                             f.setStocksMaxNum(maxnum);
                             // 下达任务
                             putlistID.add(this.createputTask(f, maxnum));
-                            remList.add(i);
+                            del.add(f);
                         } else {
                             f.setSpuno(specification.getSpuno());
                             f.setSpecid(checkLine.getSpecId());
@@ -176,21 +177,21 @@ public class InBoundServiceImpl implements InBoundService {
                     // 生成取货单
 
                 }
-
-                // 去除放满的货位
-                for (Integer i : remList) {
-                    freightList.remove(i);
-                }
+                // 删除装满的货位
+                freightList.removeAll(del);
 
                 // 只有仓库库存满了的时候，才会出现,取一半的情况
-                Double getnum = checkLine.getTotalNum() - total;
-                if (getnum >= 0.001) {
-                    checkLine.setTotalNum(getnum);
+                if (total >= 0.001) {
+                    checkLine.setTotalNum(total);
+                    InboundGet inboundGet = new InboundGet();
+                    inboundGet.setNum(checkLine.getTotalNum()-total);
+                    inboundGet.setSpecid(checkLine.getSpecId());
+                    s.add(inboundGet);
                     checkLineService.updateById(checkLine);
                 } else {
                     h++;
                     InboundGet inboundGet = new InboundGet();
-                    inboundGet.setNum(getnum);
+                    inboundGet.setNum(checkLine.getTotalNum()-total);
                     inboundGet.setSpecid(checkLine.getSpecId());
                     s.add(inboundGet);
                     checkLine.setTotalNum(0D);
@@ -221,12 +222,12 @@ public class InBoundServiceImpl implements InBoundService {
 
         // 生成本次的取货任务
         TInboundHead inboundHead = new TInboundHead();
-        inboundHead.setGetIdList(JSONObject.toJSONString(getList));
-        inboundHead.setPutIdList(JSONObject.toJSONString(putList));
+        inboundHead.setGetIdList(JSONObject.toJSONString(getlistID));
+        inboundHead.setPutIdList(JSONObject.toJSONString(putlistID));
         inboundHead.setManagerName(managername);
         inboundHead.setManagerTelephone(managertelephone);
-        inboundHead.setTaskNumGet(getList.size());
-        inboundHead.setTaskNumPut(putList.size());
+        inboundHead.setTaskNumGet(getlistID.size());
+        inboundHead.setTaskNumPut(putlistID.size());
         inboundHead.setStatus(EnumInbound.NEEDGET.getCode());
 
         inboundHeadService.save(inboundHead);
@@ -234,6 +235,7 @@ public class InBoundServiceImpl implements InBoundService {
 
     private List<OFreight> getSPUAndSPEC(Long spuid,Long specid ) {
 
+        // TODO
         // 容器数量
         int Fnum = 20;
         // 获取为空的容器(100个)
@@ -245,7 +247,7 @@ public class InBoundServiceImpl implements InBoundService {
         Page<OFreight> page = new Page(0,Fnum);
 
         // 获取分页
-        List<OFreight> freightList = (List<OFreight>) oFreightService.page(page,wrapper);
+        List<OFreight> freightList = oFreightService.page(page,wrapper).getRecords();
         if (freightList == null || freightList.size() == 0) {
             freightList = new ArrayList<>();
         }

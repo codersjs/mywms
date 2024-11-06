@@ -88,7 +88,6 @@ public class InspectServiceImpl implements InspectService {
             TReceiptItem receiptItem = receiptItemService.getById(x);
             receiptItem.setStatus(EnumReceiptTask.INSOngoing.getCode());
 
-
             // 创建验收单行
             TCheckLine checkLine = new TCheckLine();
             checkLine.setChecklineid(IDcreate.getStringId(8));
@@ -101,7 +100,7 @@ public class InspectServiceImpl implements InspectService {
             checkLine.setOperateTelephone(EnumReceiptTask.INSisNULL.getCode());
             checkLine.setStatus(EnumReceiptTask.INSNotStart.getCode());
             checkLine.setTotalNum(-1D);
-            list.add(checkLine.getCheadid());
+            list.add(checkLine.getChecklineid());
             receiptItem.setCheckLineId(checkLine.getChecklineid());
             checkLineService.save(checkLine);
             receiptItemService.updateById(receiptItem);
