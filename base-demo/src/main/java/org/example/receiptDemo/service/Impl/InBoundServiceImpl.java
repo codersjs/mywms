@@ -60,8 +60,7 @@ public class InBoundServiceImpl implements InBoundService {
     public void createInboundTask(List<String> checkHeadList, List<InboundTaskPeople> getList, List<InboundTaskPeople> putList, String managername, String managertelephone) {
 
         // 容器数量
-        int Fnum = 20;
-
+        int Fnum = 100;
         // 获取为空的容器(100个)
         LambdaQueryWrapper  wrapper = new LambdaQueryWrapper<OFreight>()
                 .ge(OFreight::getStocksNum,0)
@@ -173,9 +172,7 @@ public class InBoundServiceImpl implements InBoundService {
                             total = 0D;
                         }
                     }
-
                     // 生成取货单
-
                 }
                 // 删除装满的货位
                 freightList.removeAll(del);
