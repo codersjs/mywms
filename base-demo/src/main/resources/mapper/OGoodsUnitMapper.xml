@@ -6,11 +6,8 @@
 
     <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.OGoodsUnit">
             <id property="skuno" column="skuno" jdbcType="BIGINT"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="spuno" column="spuno" jdbcType="BIGINT"/>
             <result property="specId" column="spec_id" jdbcType="BIGINT"/>
-            <result property="batchId" column="batch_id" jdbcType="BIGINT"/>
-            <result property="checkId" column="check_id" jdbcType="BIGINT"/>
             <result property="dateManufacture" column="date_manufacture" jdbcType="TIMESTAMP"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
@@ -18,8 +15,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        skuno,name,spuno,
-        spec_id,batch_id,check_id,
+        skuno,spuno,spec_id,
         date_manufacture,createTime,updateTime,
         is_delete
     </sql>

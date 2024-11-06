@@ -16,10 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class InBoundServiceImpl implements InBoundService {
@@ -45,6 +42,9 @@ public class InBoundServiceImpl implements InBoundService {
     @Resource
     private TInboundHeadService inboundHeadService;
 
+    @Resource
+    private OGoodsUnitService goodsUnitService;
+
 
     /**
      * 创建放货任务，和取货任务
@@ -56,7 +56,6 @@ public class InBoundServiceImpl implements InBoundService {
      * @param managertelephone
      */
     @Override
-    @Transactional(rollbackFor = BusinessException.class)
     public void createInboundTask(List<String> checkHeadList, List<InboundTaskPeople> getList, List<InboundTaskPeople> putList, String managername, String managertelephone) {
 
         // 容器数量
@@ -145,6 +144,7 @@ public class InBoundServiceImpl implements InBoundService {
                                 del.add(f);
                             } else {
                                 f.setIncreaseNum(f.getIncreaseNum() + total);
+                                putlistID.add(this.createputTask(f, total));
                                 total = 0D;
                             }
                         }
@@ -230,6 +230,64 @@ public class InBoundServiceImpl implements InBoundService {
         inboundHeadService.save(inboundHead);
     }
 
+    @Override
+    public boolean finishGetTask(Long id, Long headid, String name, String telephone) {
+        TInboundHead inboundHead =  inboundHeadService.getById(headid);
+        inboundHead.setFinishTaskGet(inboundHead.getFinishTaskGet()+1);
+        if (inboundHead.getTaskNumGet() == inboundHead.getFinishTaskGet()) {
+            inboundHead.setStatus(EnumInbound.NEEDPUT.getCode());
+        }
+        TInboundGet inboundGet = inboundGetService.getById(id);
+        if (inboundGet.getStatus().equals(EnumInbound.FINSH.getCode())) {
+            throw new BusinessException("任务已经完成");
+        }
+        inboundGet.setManagerName(name);
+        inboundGet.setManagerTelephone(telephone);
+        inboundGet.setStatus(EnumInbound.FINSH.getCode());
+        inboundHeadService.updateById(inboundHead);
+        return inboundGetService.updateById(inboundGet);
+    }
+
+    @Override
+    public boolean finishPutTask(Long id, Long headid, String name, String telephone, Date date) {
+        TInboundHead inboundHead =  inboundHeadService.getById(headid);
+        inboundHead.setFinishTaskPut(inboundHead.getFinishTaskPut()+1);
+        if (inboundHead.getTaskNumPut() == inboundHead.getFinishTaskPut()) {
+            inboundHead.setStatus(EnumInbound.FINSH.getCode());
+        }
+        TInboundPut inboundPut = inboundPutService.getById(id);
+        if (inboundPut.getStatus().equals(EnumInbound.FINSH.getCode())) {
+            throw new BusinessException("任务已经完成");
+        }
+        inboundPut.setManagerName(name);
+        inboundPut.setManagerTelephone(telephone);
+        inboundPut.setStatus(EnumInbound.FINSH.getCode());
+
+        // 生成sku
+        for (int i = 0;i<inboundPut.getItemNum();i++) {
+            OGoodsUnit goodsUnit = new OGoodsUnit();
+            goodsUnit.setSpuno(inboundPut.getSpuId());
+            goodsUnit.setSpecId(inboundPut.getSpecId());
+            goodsUnit.setDateManufacture(date);
+            goodsUnitService.save(goodsUnit);
+        }
+        OFreight freight = oFreightService.getById(inboundPut.getFreId());
+        Double num = inboundPut.getItemNum();
+        freight.setIncreaseNum(freight.getIncreaseNum()-num);
+        freight.setStocksNum(freight.getStocksNum()+num);
+        oFreightService.updateById(freight);
+        inboundHeadService.updateById(inboundHead);
+
+        // 在spec中增加数量
+        OGoodsSpecification specification = goodsSpecificationService.getById(inboundPut.getSpecId());
+        specification.setTotalQuantity(specification.getTotalQuantity()+num);
+        specification.setAvailableQuantity(specification.getAvailableQuantity()+num);
+        goodsSpecificationService.updateById(specification);
+
+        return inboundPutService.updateById(inboundPut);
+    }
+
+
     private List<OFreight> getSPUAndSPEC(Long spuid,Long specid ) {
 
         // TODO
@@ -271,8 +329,6 @@ public class InBoundServiceImpl implements InBoundService {
         inboundPut.setFreId(f.getId());
 
         oFreightService.updateById(f);
-
-        // 根据数量生成sku
         inboundPutService.save(inboundPut);
         return inboundPut.getId();
     }

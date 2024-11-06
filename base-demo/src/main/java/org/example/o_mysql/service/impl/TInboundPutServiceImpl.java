@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author 施
 * @description 针对表【t_inbound_put】的数据库操作Service实现
-* @createDate 2024-11-06 10:59:04
+* @createDate 2024-11-06 19:41:35
 */
 @Service
 public class TInboundPutServiceImpl extends ServiceImpl<TInboundPutMapper, TInboundPut>

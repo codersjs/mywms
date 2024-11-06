@@ -22,12 +22,6 @@ public class OGoodsUnit implements Serializable {
     private Long skuno;
 
     /**
-     * 物品名称
-     */
-    @TableField(value = "name")
-    private String name;
-
-    /**
      * 物品的种类
      */
     @TableField(value = "spuno")
@@ -38,18 +32,6 @@ public class OGoodsUnit implements Serializable {
      */
     @TableField(value = "spec_id")
     private Long specId;
-
-    /**
-     * 物品的批次号
-     */
-    @TableField(value = "batch_id")
-    private Long batchId;
-
-    /**
-     * 检验单编号
-     */
-    @TableField(value = "check_id")
-    private Long checkId;
 
     /**
      * 生产日期

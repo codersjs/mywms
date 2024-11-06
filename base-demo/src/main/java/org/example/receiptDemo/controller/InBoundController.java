@@ -3,12 +3,18 @@ package org.example.receiptDemo.controller;
 import org.example.receiptDemo.model.InboudModel.InboundRequesut;
 import org.example.receiptDemo.service.InBoundService;
 import org.example.receiptDemo.service.InboundCheckService;
+import org.example.utilAndCommonDemo.Exception.BusinessException;
 import org.example.utilAndCommonDemo.Response.ResultData;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 @RestController
 public class InBoundController {
@@ -30,9 +36,35 @@ public class InBoundController {
         return ResultData.sucess("200",null);
     }
 
-    // 入库单头，入库单行（批次）
+    // 完成单个拿货任务
+    @PostMapping("/create/finish/get")
+    public ResultData finishGetTask(@RequestParam("id") Long id,
+                                    @RequestParam("headid") Long headid,
+                                    @RequestParam("name") String name,
+                                    @RequestParam("telephone") String telephone) {
+        inBoundService.finishGetTask(id,headid,name,telephone);
+        return ResultData.sucess("200",null);
+    }
 
 
-    // 入库，状态改变
+    // 完成单个上架货任务
+    @PostMapping("/create/finish/put")
+    public ResultData finishPutTask(@RequestParam("id") Long id,
+                                    @RequestParam("headid") Long headid,
+                                    @RequestParam("name") String name,
+                                    @RequestParam("telephone") String telephone,
+                                    @RequestParam("date") String date) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date time;
+        try {
+            time = sdf.parse(date);
+        } catch (ParseException e) {
+            throw new BusinessException("日期的格式不对");
+        }
+        inBoundService.finishPutTask(id, headid, name, telephone, time);
+        return ResultData.sucess("200", null);
+    }
+
 
 }

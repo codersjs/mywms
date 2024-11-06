@@ -93,6 +93,12 @@ public class TInboundPut implements Serializable {
     @TableField(value = "is_delete")
     private Integer isDelete;
 
+    /**
+     * 状态
+     */
+    @TableField(value = "status")
+    private String status;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

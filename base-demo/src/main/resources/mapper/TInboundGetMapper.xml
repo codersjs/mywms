@@ -14,6 +14,7 @@
             <result property="resId" column="res_id" jdbcType="BIGINT"/>
             <result property="sheId" column="she_id" jdbcType="BIGINT"/>
             <result property="freId" column="fre_id" jdbcType="BIGINT"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
@@ -23,6 +24,7 @@
         id,batch_id,manager_name,
         manager_telephone,good_list,ware_id,
         res_id,she_id,fre_id,
-        createTime,updateTime,is_delete
+        status,createTime,updateTime,
+        is_delete
     </sql>
 </mapper>

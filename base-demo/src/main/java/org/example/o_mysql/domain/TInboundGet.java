@@ -70,6 +70,12 @@ public class TInboundGet implements Serializable {
     private Long freId;
 
     /**
+     * 状态
+     */
+    @TableField(value = "status")
+    private String status;
+
+    /**
      * 创建时间
      */
     @TableField(value = "createTime")

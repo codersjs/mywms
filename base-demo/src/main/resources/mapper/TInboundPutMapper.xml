@@ -18,6 +18,7 @@
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -25,6 +26,6 @@
         manager_name,manager_telephone,item_num,
         ware_id,res_id,she_id,
         fre_id,createTime,updateTime,
-        is_delete
+        is_delete,status
     </sql>
 </mapper>
