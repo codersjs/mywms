@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.o_mysql.mapper.TIssueLineMapper">
+
+    <resultMap id="BaseResultMap" type="org.example.o_mysql.domain.TIssueLine">
+            <id property="issLineId" column="iss_line_id" jdbcType="BIGINT"/>
+            <result property="spuid" column="spuid" jdbcType="BIGINT"/>
+            <result property="specid" column="specid" jdbcType="BIGINT"/>
+            <result property="getNum" column="get_num" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        iss_line_id,spuid,specid,
+        get_num,status,createTime,
+        updateTime,is_delete
+    </sql>
+</mapper>
