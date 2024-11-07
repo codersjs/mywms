@@ -8,7 +8,7 @@
             <id property="issLineId" column="iss_line_id" jdbcType="BIGINT"/>
             <result property="spuid" column="spuid" jdbcType="BIGINT"/>
             <result property="specid" column="specid" jdbcType="BIGINT"/>
-            <result property="getNum" column="get_num" jdbcType="INTEGER"/>
+            <result property="getNum" column="get_num" jdbcType="DOUBLE"/>
             <result property="status" column="status" jdbcType="VARCHAR"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>

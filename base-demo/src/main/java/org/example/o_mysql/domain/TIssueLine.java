@@ -37,7 +37,7 @@ public class TIssueLine implements Serializable {
      * 任务数量
      */
     @TableField(value = "get_num")
-    private Integer getNum;
+    private Double getNum;
 
     /**
      * 状态

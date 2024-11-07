@@ -74,7 +74,7 @@ public class IDcreate {
         String ans = "";
         Random r = new Random();
         for (int i = 0; i < 16; i++) {
-            if (r.nextInt(100)>=30) {
+            if (r.nextInt(100)>=20) {
                 ans += R[r.nextInt(9)];
                 if (i == 0 && ans.equals("0")) {
                     ans = "";
