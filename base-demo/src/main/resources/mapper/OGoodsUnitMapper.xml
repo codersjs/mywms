@@ -8,6 +8,7 @@
             <id property="skuno" column="skuno" jdbcType="BIGINT"/>
             <result property="spuno" column="spuno" jdbcType="BIGINT"/>
             <result property="specId" column="spec_id" jdbcType="BIGINT"/>
+            <result property="freId" column="fre_id" jdbcType="BIGINT"/>
             <result property="dateManufacture" column="date_manufacture" jdbcType="TIMESTAMP"/>
             <result property="createtime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updatetime" column="updateTime" jdbcType="TIMESTAMP"/>
@@ -16,7 +17,7 @@
 
     <sql id="Base_Column_List">
         skuno,spuno,spec_id,
-        date_manufacture,createTime,updateTime,
-        is_delete
+        fre_id,date_manufacture,createTime,
+        updateTime,is_delete
     </sql>
 </mapper>

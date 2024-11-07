@@ -34,6 +34,12 @@ public class OGoodsUnit implements Serializable {
     private Long specId;
 
     /**
+     * 
+     */
+    @TableField(value = "fre_id")
+    private Long freId;
+
+    /**
      * 生产日期
      */
     @TableField(value = "date_manufacture")

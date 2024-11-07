@@ -10,7 +10,6 @@ import org.example.utilAndCommonDemo.Exception.BusinessException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -50,9 +49,7 @@ public class inBoundTWOserviceImpl implements inBoundTWOservice {
         List<Long> putList = JSONObject.parseObject(inboundHead.getPutIdList().toString(),List.class);
         for (Long putId : putList) {
             try{
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                Date date = sdf.parse("2025-11-06");
-                boundService.finishPutTask(putId,id,"名称","15575025059",date);
+                boundService.finishPutTask(putId,id,"名称","15575025059",new Date());
             }catch (Exception e){
                 if (! e.getMessage().equals("任务已经完成")) {
                     throw new BusinessException(e.getMessage());
@@ -60,4 +57,6 @@ public class inBoundTWOserviceImpl implements inBoundTWOservice {
             }
         }
     }
+
+
 }

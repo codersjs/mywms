@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -44,6 +46,9 @@ public class InBoundServiceImpl implements InBoundService {
 
     @Resource
     private OGoodsUnitService goodsUnitService;
+
+    @Resource
+    private OGoodsTypeService goodsTypeService;
 
 
     /**
@@ -263,12 +268,28 @@ public class InBoundServiceImpl implements InBoundService {
         inboundPut.setManagerTelephone(telephone);
         inboundPut.setStatus(EnumInbound.FINSH.getCode());
 
+        // 获取商品的保质期
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = sdf.format(date);
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(sdf.parse(dateString));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        // 加上保质期
+        OGoodsType goodsType = goodsTypeService.getById(inboundPut.getSpuId());
+        calendar.set(Calendar.DATE,goodsType.getDefaultShelfLife());
         // 生成sku
+
         for (int i = 0;i<inboundPut.getItemNum();i++) {
             OGoodsUnit goodsUnit = new OGoodsUnit();
             goodsUnit.setSpuno(inboundPut.getSpuId());
             goodsUnit.setSpecId(inboundPut.getSpecId());
-            goodsUnit.setDateManufacture(date);
+            goodsUnit.setDateManufacture(calendar.getTime());
+            goodsUnit.setFreId(inboundPut.getFreId());
             goodsUnitService.save(goodsUnit);
         }
         OFreight freight = oFreightService.getById(inboundPut.getFreId());

@@ -53,15 +53,20 @@ public class InBoundController {
                                     @RequestParam("headid") Long headid,
                                     @RequestParam("name") String name,
                                     @RequestParam("telephone") String telephone,
-                                    @RequestParam("date") String date) {
+                                    @RequestParam(value = "date",required = false) String date) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date time;
-        try {
-            time = sdf.parse(date);
-        } catch (ParseException e) {
-            throw new BusinessException("日期的格式不对");
+        if (date!=null) {
+            try {
+                time = sdf.parse(date);
+            } catch (ParseException e) {
+                throw new BusinessException("日期的格式不对");
+            }
+        } else {
+            time = new Date();
         }
+
         inBoundService.finishPutTask(id, headid, name, telephone, time);
         return ResultData.sucess("200", null);
     }
