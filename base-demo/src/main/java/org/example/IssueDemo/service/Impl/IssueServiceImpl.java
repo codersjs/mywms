@@ -55,7 +55,7 @@ public class IssueServiceImpl implements IssueService {
             lineIds.add(IDcreate.getLongIdMIN6());
             issueLineService.save(tissueLine);
         }
-
+        issueHead.setTaskNum(lineIds.size());
         issueHead.setIssueLineList(JSONObject.toJSONString(lineIds));
         issueHeadService.save(issueHead);
     }
@@ -70,8 +70,12 @@ public class IssueServiceImpl implements IssueService {
         // 1. 查询数量是否足够
         for (IssueLineRequest requestLine : list) {
             Long specid = requestLine.getSpecid();
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             changespecNum(specid,requestLine.getNum());
-            // 亮点redis的分布式锁
         }
         // 2.
 
